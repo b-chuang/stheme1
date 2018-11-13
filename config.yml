@@ -1,4 +1,19 @@
+:api_key: 53040f199a3b0d1ba140968190e7f1f7
+:ignore_files:
+- todo
+- config/settings_data.json
+
 development:
   password: 6881d97ad0f17c822f01eac97ddf5862
   theme_id: "33282326594"
   store: under-my-sea.myshopify.com
+
+
+production:
+  password: 6881d97ad0f17c822f01eac97ddf5862
+  theme_id: "13734871106"
+  store: under-my-sea.myshopify.com
+  timeout: 60s
+  
+
+
