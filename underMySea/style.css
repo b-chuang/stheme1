@@ -2,5 +2,11 @@
 
 
 img {
-max-width: 100%;
+max-width: 110%;
+margin-left:-51.6px;
+}
+
+body {
+    display:flex;
+    
 }
