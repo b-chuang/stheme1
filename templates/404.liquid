@@ -1,7 +1,12 @@
-<!-- /templates/404.liquid -->
+{% include 'breadcrumb' %}
 
-<header class="section-header section-header--404 text-center">
-  <h1>{{ 'general.404.title' | t }}</h1>
-  <hr class="hr--small">
-  <p>{{ 'general.404.subtext_html' | t }}</p>
-</header>
+<div class="grid">
+
+  <div class="grid-item large--two-thirds push--large--one-sixth text-center">
+
+    <h1>{{ 'general.404.title' | t }}</h1>
+    <p>{{ 'general.404.subtext_html' | t }}</p>
+
+  </div>
+
+</div>

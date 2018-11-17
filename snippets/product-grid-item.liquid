@@ -1,28 +1,13 @@
-<!-- /snippets/product-grid-item.liquid -->
-{% comment %}
-
-  This snippet is used to showcase each product during the loop,
-  'for product in collection.products' in collection.liquid.
-
-  A liquid variable (grid_item_width) is set just before the this
-  snippet is included to change the size of the container.
-  Once the variable is set on a page, all future instances of this
-  snippet will use that width. Overwrite the variable to adjust this.
-
-  Example
-    - assign grid_item_width = 'large--one-quarter medium--one-half'
-
-{% endcomment %}
-
 {% unless grid_item_width %}
-  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+  {% assign grid_item_width = 'large--one-quarter medium-down--one-half' %}
 {% endunless %}
 
-{% unless width %}
-  {%- assign width = 310 -%}
+{% unless image_size %}
+  {%- assign image_size = '600x600' -%}
 {% endunless %}
-{% unless height %}
-  {%- assign height = 415 -%}
+
+{% unless current_collection %}
+  {% assign current_collection = collection %}
 {% endunless %}
 
 {% assign on_sale = false %}
@@ -31,81 +16,86 @@
 {% endif %}
 
 {% assign sold_out = true %}
-{% if product.available %}
+{% if product.available  %}
   {% assign sold_out = false %}
 {% endif %}
 
-{% capture img_id_class %}ProductImage-{{ product.featured_image.id }}{% endcapture %}
-{% capture img_wrapper_id %}ProductImageWrapper-{{ product.featured_image.id }}{% endcapture %}
-{%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+<div class="grid-item {{ grid_item_width }}{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
 
-<div class="grid__item grid-product {{ grid_item_width }}{% if sold_out %} is-sold-out{% endif %}">
-  <div class="grid-product__wrapper">
-    <div class="grid-product__image-wrapper">
-      <a class="grid-product__image-link" href="{{ product.url | within: collection }}">
-        {% if product.featured_image.src == blank %}
-          <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
-        {% else %}
-          {% include 'image-style' with image: product.featured_image, small_style: true, width: width, height: height, wrapper_id: img_wrapper_id, img_id_class: img_id_class %}
-          <div id="{{ img_wrapper_id }}" class="product--wrapper">
-            <div style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%;">
-              <img class="product--image lazyload {{ img_id_class }}"
-                   src="{{ product.featured_image | img_url: '150x150' }}"
-                   data-src="{{ img_url }}"
-                   data-widths="[180, 370, 590, 740, 900, 1080, 1296, 1512, 1728, 2048]"
-                   data-aspectratio="{{ product.featured_image.aspect_ratio }}"
-                   data-sizes="auto"
-                   alt="{{ product.featured_image.alt | escape }}">
+  <a href="{{ product.url | within: current_collection }}" class="product-grid-item">
+    <div class="product-grid-image">
+      <div class="product-grid-image--centered">
+        {% if sold_out %}
+          <div class="badge badge--sold-out"><span class="badge-label">{{ 'products.product.sold_out' | t }}</span></div>
+        {% endif %}
+
+        {% if product.featured_image %}
+          {%- assign image = product.featured_image -%}
+          {%- assign max_width = width | plus: 0 -%}
+          {%- assign max_height = height | plus: 0 -%}
+
+          {%- include 'image-logic' with width: max_width, height: max_height -%}
+
+          {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <div class="lazyload__image-wrapper no-js" style="max-width: {{ max_width }}px">
+            <div style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
+              <img
+                class="lazyload no-js"
+                data-src="{{ img_url }}"
+                data-widths="[125, 180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ image.alt | escape }}"
+                {% comment %}style="max-height: {{ height }}px;">{% endcomment %}>
             </div>
           </div>
           <noscript>
-            <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
-          </noscript>
+           <img src="{{ image | img_url: '580x' }}"
+             srcset="{{ image | img_url: '580x' }} 1x, {{ image | img_url: '580x', scale: 2 }} 2x"
+             alt="{{ image.alt }}" style="opacity:1;">
+         </noscript>
+
+        {% else %}
+        {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
+        <div>
+        {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {% endif %}
+      </div>
+    </div>
+
+    <p>{{ product.title }}</p>
+
+    <div class="product-item--price">
+      <span class="h1 medium--left">
+        {% if on_sale %}
+          <span class="visually-hidden">{{ "products.general.sale_price" | t }}</span>
+        {% else %}
+          <span class="visually-hidden">{{ "products.general.regular_price" | t }}</span>
         {% endif %}
-      </a>
-      {% if sold_out %}
-        <div class="grid-product__sold-out">
-          <p>{{ 'products.product.sold_out_html' | t }}</p>
-        </div>
-      {% elsif on_sale %}
-        <div class="grid-product__on-sale">
-          {% capture saved_amount %}{{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}{% endcapture %}
-          <p>{{ 'products.general.save_html' | t: saved_amount: saved_amount }}</p>
-        </div>
+        {% include 'price' with product.price %}
+        {% if on_sale and section.settings.product_show_compare_at_price %}
+          <small>
+            <s>
+              <span class="visually-hidden">{{ "products.general.regular_price" | t }}</span>
+              {% include 'price' with product.compare_at_price %}
+            </s>
+          </small>
+        {% endif %}
+      </span>
+
+      {% if on_sale and section.settings.product_show_saved_amount %}
+        <span class="sale-tag{% unless section.settings.show_compare_at_price %} medium--right{% endunless %}{% if section.settings.product_reviews_enable %} has-reviews{% endif %}">
+          {% assign compare_price = product.compare_at_price %}
+          {% assign product_price = product.price %}
+          {% include 'price-sale' %}
+        </span>
       {% endif %}
     </div>
 
-    <a href="{{ product.url | within: collection }}" class="grid-product__meta">
-      <span class="grid-product__title">{{ product.title }}</span>
+    {% if section.settings.product_reviews_enable %}
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+    {% endif %}
+  </a>
 
-      <span class="grid-product__price-wrap">
-        <span class="long-dash">—</span>
-        <span class="grid-product__price">
-          {% if on_sale %}
-            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-          {% else %}
-             <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          {% endif %}
-          {% if product.price_varies %}
-            {{ product.price_min | money_without_trailing_zeros }}
-            <span class="icon-fallback-text">
-              <span class="icon icon-plus grid-product__price-min" aria-hidden="true"></span>
-              <span class="fallback-text">+</span>
-<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-              
-            </span>
-          {% else %}
-            {{ product.price | money_without_trailing_zeros }}
-          {% endif %}
-        </span>
-      </span>
-      {% if section.settings.product_vendor_enable %}
-        <p class="grid-product__vendor">{{ product.vendor }}</p>
-      {% endif %}
-    </a>
-  </div>
-
-<!-- **BEGIN** Hextom USB Integration // Collection Include - DO NOT MODIFY -->
-    {% include 'hextom_usb_coll' %}
-    <!-- **END** Hextom USB Integration // Collection Include - DO NOT MODIFY -->
 </div>

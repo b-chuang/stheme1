@@ -1,5 +1,208 @@
-<!-- /templates/index.liquid -->
+{% comment %}
+{{ content_for_index }}
+{% endcomment %}
+ <!-- Custom styles for this template -->
+    <style>
+        .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+            padding: 10px;
+        }
+      body {
+      }
+        .white-btn {
+              height: auto;
+    white-space: pre;
+            background: #fff;
+            color: #444;
+            font-size: 20px;
+            padding: 10px 40px;
+             box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        .white-btn:hover {
+             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        .gear {
+            height:450px;
+             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+      .gear p {
+            margin-bottom: 30px;
+      }
+        .military {
+         background: url({{ 'militarygearoverlay2.jpg' | asset_url }});
+            background-size: cover;
+            padding: 100px 50px;
+            color: #fff;
+        }
+         .outdoor {
+         background: url({{ 'outdoorgearoverlay2.jpg' | asset_url }});
+            background-size: cover;
+               background-position: center center;
+            padding: 150px 50px;
+            color: #fff;
+        }
+         .hobby {
+         background: url({{ 'hobbygearoverlay2.jpg' | asset_url }});
+            background-size: cover;
+            padding: 150px 50px;
+            color: #fff;
+        }
+          .tech {
+         background: url({{ 'techgearoverlay2.jpg' | asset_url }});
+            background-size: cover;
+            padding: 150px 50px;
+            color: #fff;
+        }
+       .wrapper {
+        max-width: 1600px;
+       }
+       .endo {
+         background: url( {{ 'endoPromo.jpg'  | asset_url }})  no-repeat;
+            background-size: 100% 100%;
+        padding: 350px 50px;
+            color: #fff;
+        }
+        .freeship {
+            background: url({{ 'freeship.jpg' | asset_url }})  no-repeat;
+        }
+        .support {
+             background: url({{ 'easyreturns.jpg' | asset_url }}) no-repeat; 
+        }
+        .easyreturns {
+           background: url({{ 'supportteam.jpg' | asset_url }})  no-repeat; 
+             background-position: -50px -60px !important;
+        }
+        .whyus {
+            height: 150px;
+             padding: 50px 30px;
+            color: #fff; 
+            background-position: center center;
+        }
+        .whyus p {
+            background: rgba(225,225,225,.8);
+            color: #444;
+            font-size: 22px;
+            padding: 10px;
+            width: 100%;
+            font-weight: bold;
+        }
+      .endo-photo {
+        display:none;width:100%;height:auto;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+      .main-content h3 {
+    color: #fff;
+    font-size: 28px;
+}
+      @media (max-width:789px) {
+        .endo {
+          display:none;
+        }
+        .main-content h3 {
+    font-size: 22px;
+}
+        .endo-photo {
+          display:block
+        }
+        .whyus p {
+          font-size:16px;
+        }
+      }
 
-<div class="index-sections">
-  {{ content_for_index }}
-</div>
+    </style>
+<div class="new-bmcf-homepage" >
+ <!-- <div class="row text-center" style="background:#111;margin:auto -45px; ">
+    <br />
+          <div class="row">
+          <img src="{{ 'bfcmtop.png' | asset_url }}" style="max-width:80%;height:auto" />
+          </div> 
+           <div class="row" style="margin:90px auto">
+          <a href="https://valuegearonline.com/collections/bfcm" class="white-btn" style="font-size:35px;background:#f90000;color:#fff;border-radius:80px;font-weight: 600; ">SHOP NOW!</a>
+            </div>
+     <div class="row">
+          <img src="{{ 'bfcmbot.png' | asset_url }}" style="max-width:90%;height:auto" />
+          </div>
+    
+     <br />
+          </div> -->
+      
+            <div class="row text-center" style="margin:40px auto">
+          <div class="col-md-4">
+          <div class="freeship whyus">
+           <p>Free Shipping Anywhere</p> 
+            </div>    
+          </div>
+          <div class="col-md-4">
+          <div class="support whyus">
+            <p>Support Team Anytime</p>
+            </div>    
+          </div>
+          <div class="col-md-4">
+          <div class="easyreturns whyus">
+           <p>Easy Returns Always</p>
+            </div>    
+          </div>
+          
+          </div>
+           <div class="row">
+          <div class="col-md-12">
+            <div class="endo gear" style="position:relative">
+      <!--    <img src="{{ 'endoPromo.jpg'  | asset_url }}" style="width:100%;height:auto;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);" /> -->
+           
+             <div class="row text-right" style="position:absolute; bottom:0;">
+          <div class="col-md-12">
+          <div class=" whyus text-center">
+            <a href="https://valuegearonline.com/products/endosnake-5-5mm" class="white-btn" style="background:#dfdfdf">Buy Yours Now At 75% OFF!</a>
+            
+            </div>    
+          </div>
+         
+          
+          </div>
+            </div>
+            <a href="https://valuegearonline.com/products/endosnake-5-5mm"> <img src="{{ 'endoPromo.jpg'  | asset_url }}" alt="Endosnake Promo" class="endo-photo" /> </a>
+            </div> 
+          
+          </div>
+             <div class="row">
+         <div class="col-md-12">
+          <div class="outdoor gear">
+             <h3>Outdoor Gear Doesn't Have To Be Expensive</h3>
+              <p class="lead"> Explore our collection of high quality outdoor gear at low prices</p>
+              <a href="https://valuegearonline.com/collections/outdoor-gear" class="white-btn">Explore Now</a>
+             </div>
+             
+          </div> 
+          
+          </div>
+      <div class="row">
+         <div class="col-md-8">
+                <div class="tech gear">
+             <h3>Tech For Everybody!</h3>
+              <p class="lead">Amazing Tech Gadgets for Everyday Are Now Affordable For Everyone!</p>
+              <a href="https://valuegearonline.com/collections/tech-equipment" class="white-btn">Search &amp; Claim </a>
+             </div>
+       
+          </div> 
+          <div class="col-md-4">
+          <div class="hobby gear">
+             <h3>For Those Who Like Doing Things on Their Own</h3>
+              <p></p>
+             <a href="https://valuegearonline.com/collections/hobby" class="white-btn">Find Deals</a>
+             </div>
+          </div> 
+          </div>
+        <div class="row">
+         <div class="col-md-12">
+          <div class="military gear">
+             <h3>Tactical Gear Prices Dropping Rapidly</h3>
+              <div class="row">
+              <div class="col-md-7">
+              <p class="lead">Not all gear is made equal. Our gear is made to be reliable and to last! Only limit that our tactical gear has is stock limit.</p>
+              <a href="https://valuegearonline.com/collections/military" class="white-btn">Grab Your Gear</a>
+                  </div></div>
+             </div>
+          </div> 
+          
+          </div>
+      </div>
+
+
