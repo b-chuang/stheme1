@@ -1,0 +1,672 @@
+<style type="text/css">
+        .main-content {
+            padding-top: 10px;
+        }
+        h1.product-single__title {
+            font-weight: bold;
+            font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+            -webkit-text-stroke: #015f87 3px;
+            color: #015f87;
+            text-shadow: 0px -2px #015f87;
+                  letter-spacing: 1.5px;
+            font-size: 2.6rem;
+        }
+        h1.product-single__title span {
+            color: #484848!important;
+            -webkit-text-stroke: 3px #484848;
+        }
+        .saleText {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0080a5;
+        }
+        .saleText span {
+            color: #ce032c;
+        }
+        .saleText img {
+            width: 29px;
+            vertical-align: text-bottom;
+            margin-right: 12px;
+            margin-left: 12px;
+        }
+        img.wavyBorder {
+            height: unset!Important;
+            width: 55%;
+            margin-top: 0px;
+            vertical-align: top;
+        }
+        .subTitleText {
+            color: #018bae;
+            font-size: 18px;
+            letter-spacing: 0.6px;
+        }
+        .product-single__photos img{
+                background:transparent!important;
+        }
+        .order-btn-icon {
+            background: #ff6905!important;
+            border: 2px solid #ab4400;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding-left: 0px!important;
+            padding-right: 0px!important;
+            outline: none;
+        }
+        .order-btn-icon span{
+                vertical-align:bottom; 
+        }
+        span.assurance {
+            font-size: 13px;
+            padding-top: 10px;
+        }
+        select#SingleOptionSelector-0 {
+            border-color: #1555a0;
+            border-radius: 7px;
+            padding: 4px 40px 4px 25px;
+            font-size: 16px;
+            font-style: normal;
+        }
+        div#productIntro p {
+            margin-bottom: 8px;
+        }
+        div#productIntro {
+            font-size: 14px;
+            text-align: left;
+        }
+        .product-single__meta {
+            padding-top: 5px;
+        }
+        .radio-wrapper .single-option-radio__label{
+                  margin-bottom:0px;
+        }
+        .hidden{display:none!important;}
+          
+        .grid.gurantee-benefit {
+            background: #273A72;
+            display: block;
+            margin-bottom: 0px;
+            box-shadow: 1000px 0px #273A72, -1000px 0px #273A72;
+        }
+        .gurantee-benefit .imgBox {
+            display: inline-block;
+            width: 16%;
+            float: left;
+        }
+        .contentBox {
+            width: 82%;
+            float: right;
+        }
+        .contentBox h3 {
+            font-weight: bold;
+            text-align: left;
+            font-size: 1.1rem;
+            letter-spacing: 0px;
+          margin-bottom:0px;
+        }
+        .contentBox p {
+            font-size: 0.9rem;
+        }
+        .gurantee-benefit .grid__item.product-single__meta--wrapper.medium--six-twelfths.large--six-twelfths {
+            padding-right: 0px;
+        }
+        .contentBox p {
+            margin-bottom: 0px;
+        }
+        .grid.gurantee-benefit {
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+        .green-color.grid.orderBox {
+            background: #037d00;
+            color: white;
+            text-align: center;
+            box-shadow: 1000px 0px #037d00, -1000px 0px #037d00;
+        }
+        .green-color.orderBox h2 {
+            color: white;
+                  font-family:inherit;
+                  margin-bottom: 0px;
+           text-shadow: 0px -1px white;
+        }
+        .green-color.grid.orderBox p {
+            margin-bottom: 0px;
+        }
+        .green-color.grid.orderBox {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+           
+        .green-color.orderBox h2:after {
+            display:none;
+        }
+        .charity.grid h2:after {
+            display: none;
+        }
+        .charity.grid h2 {
+            margin-bottom:0px;
+        }
+        .charity.grid h2 {
+            font-family: inherit;
+            font-size: 2rem;
+            -webkit-text-stroke: 2px;
+        }
+        .grid.highlightBox, .grid.specifications {
+            background: #f5f5f5;
+            box-shadow: 1000px 0px #f5f5f5, -1000px 0px #f5f5f5;
+        }
+          .grid.highlightBox h2:after, .grid.specifications h2:after{display:none;}
+        
+        .grid.highlightBox h2, .grid.specifications h2 {
+            margin-bottom: 10px;
+            padding-top: 10px;
+            text-align: right;
+            font-size: 3rem;
+            font-family: inherit;
+            font-weight: bold;
+            -webkit-text-stroke: 2px;
+            color: #002637;
+            text-shadow: 1px 1px 3px #6f6f6f;
+        }
+        .grid.specifications h2{
+                text-align:center;
+            text-transform:uppercase;
+        }
+        .grid.highlightBox h2.shadowVertical {
+            margin-bottom: 10px;
+            text-align: left;
+            font-family: inherit;
+            font-weight: bold;
+            transform: rotate(270deg);
+            position: relative;
+            color: #ddd;
+            font-size: 3rem;
+            padding-top: 0px;
+            left: -40%;
+            height: 0px;
+            margin: 0;
+            padding: 0;
+            -webkit-text-stroke: 3px #ddd;
+        }
+        ul.boxList {
+            list-style: none;
+            text-align: center;
+            padding: 20px;
+            margin: 0px;
+        }
+        .specifications img.sepjet {
+            width: 56%;
+            margin: auto;
+            display: block;
+            position: relative;
+            top: -28px;
+        }
+        ul.boxList li:hover img {
+            filter: invert(100);
+        }
+        ul.boxList li:hover {
+            background: #19405e;
+            color: white;
+        }
+        
+        ul.boxList li:hover img {
+            filter: invert(100);
+        }
+        .testimonial h2 {
+            margin: 0px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: inherit;
+            font-weight: bold;
+            letter-spacing: 2px;
+            -webkit-text-stroke: 2px;
+            color: #002637;
+            text-shadow: 1px 1px 3px #6f6f6f;
+        }
+        .testimonial h2:after {
+            display: none;
+        }
+        ul.boxList li {
+            display: inline-block;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+          .specifications img{max-width: 60%;}
+        .grid.specifications {
+            padding-top: 40px;
+            padding-bottom: 40px;
+                  margin-bottom:0px;
+        }
+        .saving h2 {
+            font-family: inherit;
+            font-size: 2.3rem;
+            font-weight: bold;
+            -webkit-text-stroke: 2px;
+            color: #002637;
+          margin-bottom:0px;
+          margin-top:30px;
+        }
+          .saving h3{
+                  margin: 0px;
+            color: #005e88;
+            font-weight: bold;
+            -webkit-text-stroke: 2px;
+            font-size: 1.5rem;
+          }
+        .saving h2:after {
+            display:none;
+        }
+         img.sepjet {
+            max-width: 81%;
+                   position:relative;
+           top:-10px;
+         }
+          .savingList li{
+          list-style:none;
+            text-align:center;
+          }
+        .savingList span {
+            color: red;
+            font-weight: bold;
+        }
+        .savingList li{
+          color:grey;
+        }
+        .saving h3 span {
+            color: green;
+        }
+        .saving h3 {
+            color: #222;
+            font-size: 1.8rem;
+        }
+        .saving p {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 20px;
+            color: grey;
+            font-weight: 400;
+        }
+        .saving h2.saved{
+                  margin:0px;
+          color:green;  
+        }
+        .saving h2.saved span {
+            font-size: 1.7rem;
+            text-transform: uppercase;
+            color: #949494!important;
+        }
+        .compareBox h2 {
+            font-family: inherit;
+            font-weight: bold;
+            -webkit-text-stroke: 2px;
+            letter-spacing: 2px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+          margin:0;
+        }
+        .compareBox h2:after{
+                  display:none;
+        }
+        .compareBox h4{
+          margin-bottom:10px;
+        }
+        .compareBox h4 {
+            text-align: center;
+            color: #005e88;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+        .grid.comparison {
+            box-shadow: 1000px 0px #005b7f, -1000px 0px #e6e6e6;
+          background: rgba(230,230,230,1);
+        background: -moz-linear-gradient(left, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(230,230,230,1)), color-stop(50%, rgba(230,230,230,1)), color-stop(50%, rgba(0,91,127,1)), color-stop(100%, rgba(0,91,127,1)));
+        background: -webkit-linear-gradient(left, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
+        background: -o-linear-gradient(left, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
+        background: -ms-linear-gradient(left, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
+        background: linear-gradient(to right, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#005b7f', GradientType=1 );
+        }
+        .grid.comparison .leftBox{
+            background-color:#e6e6e6;
+        }
+        .grid.comparison .rightBox{
+          background-color:#005b7f;
+          color:#fff;
+        }
+        .grid.comparison .rightBox h2{
+          color:#fff;
+        }
+        .leftBox, .rightBox {
+            padding: 30px;
+        }
+        .grid.comparison {
+            margin-top: 20px;
+        }
+        .grid.comparison .leftBox ul {
+            color: #858585;
+            list-style-type: none;
+            font-weight: 600;
+            line-height: 1.8rem;
+            padding-left: 50px;
+            padding-top: 25px;
+        }
+        .grid.comparison .leftBox ul li:before {
+            content: 'x ';
+            color: white;
+            background: #c30606;
+            border-radius: 50%;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            line-height: 1em;
+            margin-right: 10px;
+        }
+        .rightBox ul {
+            list-style: none;
+            margin-top: 21px;
+            padding-left: 20px;
+        }
+        .rightBox ul li:before {
+            content: '✓ ';
+        }
+        .rightBox ul li:before {
+            content: '✓';
+            border: 2px solid white;
+            border-radius: 50%;
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 10px;
+        }
+        .rightBox ul li {
+            padding-bottom: 5px;
+        }
+        .inAction h2 {
+            text-align: left;
+            font-family: inherit;
+            font-size: 2.2rem;
+            -webkit-text-stroke: 2px;
+          margin-bottom:0px;
+        }
+        .inAction p.subTitle {
+            color: #005e88;
+            font-size: 1.6rem;
+        }
+        
+        
+        div#shopify-product-reviews h2 {
+            font-family: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+          
+        .inAction h2:after {
+            display:none;
+        }
+        .grid.faq h2 {
+            font-family: inherit;
+            font-weight: bold;
+            -webkit-text-stroke: 2px;
+            letter-spacing: 2px;
+            font-size: 2rem;
+        }
+        .grid.faq h2:after {
+                   display:none;
+        }
+        .faqItem {
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+        .faqItem h4 {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 9px;
+        }
+
+        .featImg1 {
+            height:70%;
+        }
+        </style>
+
+    <div id="priceDesc">
+        <div class="descIcons">
+            <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/diver_20x20_crop_center@2x.png" alt="diver icon">
+            <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon">
+                
+                <p>Designed for scuba divers, free divers, snorkelers and everyday aquatic <b>fun enthusiasts.</b></p>
+                <p><b>WHITESHARK MIX </b> electric propulsion system, equipped with twin propellers can glide you through the water in an exhilarating, easy, and fun way, on the surface or below, with top speeds of <b>5.56 km/h</b> and depths  up to <b>131 feet</b>.</p>
+        </div>
+    </div>
+
+    <div id="featureImage1">
+            <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_12.45.34_PM.png">
+    </div>
+        <div class="grid gurantee-benefit">
+            <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_12.46.38_PM_1400x.png" alt="Guarantee banner">
+
+            <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths">
+                <div class="imgBox">
+                    <img src="https://cdn.shopify.com/s/files/1/1302/6949/files/moneyBack.png" class="days" />
+                </div>
+                <div class="contentBox">
+                    <h3>30 Days Money Back Guarantee</h3>
+                    <p>We do think you will have a great experience with the
+                        WHITESHARK MIX, but in case you are not happy, we will 
+                        return your money back guarantee within 30 days.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths">
+                <div class="imgBox">
+                    <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_2.42.36_PM_20x20_crop_center@2x.png" class="days" style="position: relative;" />
+                </div>
+                <div class="contentBox">
+                    <h3>World's Smallet Twin-prop Scooter</h3>
+                    <p>World's Smallest Twin-Prop Underwater Scooter. Dive deeper, swim faster, ride the waves or simply play anywhere there's water.</p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="green-color grid orderBox">
+            <h2>ORDER TODAY AND GET 50% OFF STOREWIDE</h2>
+            <p class="t-shirt">(+ a free T-Shirt?)</p>
+        </div> -->
+        <div class="charity grid">
+            <h2 style="text-align: center;">Force Blue - Mission Therapy</h2>
+            <p class="subTitle" style="text-align: center;">With every purchase, a portion of the profits will be donated to Force Blue to help veterans</p>
+                <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/forceBlue.png" style="display: block; margin-left: auto; margin-right: auto;" />
+                
+                <p style="width: 80%; margin: auto; text-align: center; margin-top: 30px;">Force Blue is the only nonprofit organization in the world that provides “mission therapy” for former combat divers — individuals in whom governments around the world have invested millions to create the best possible underwater and maritime operators — by retraining, retooling and deploying them on missions of conservation, preservation and restoration.
+                </p>
+                <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/bg_sponsor_force_blue_1080x.jpg" style="display:float; margin-left: auto; margin-right: auto;" />
+        </div>
+
+
+        <div class="grid highlightBox">
+            <h2 style="text-align: center;"></h2>HIGHLIGHTS</h2>
+            <!-- <h2 class="shadowVertical">AQUAJET DIVE H2</h2> -->
+                <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_1.08.40_PM_1080x.png" style="display:block; max-width: 80%;" />
+                
+            <div class="clearfix" style="clear: both;"></div>
+        </div>
+
+
+            <div class="grid testimonial">
+                <div class="grid__item product-single__meta--wrapper medium--five-twelfths large--five-twelfths">
+                    <h2>TESTIMONIALS</h2>
+                    <br />
+                    <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_3.07.09_PM_1080x.png" />
+                </div>
+                
+                <div class="grid__item product-single__meta--wrapper medium--seven-twelfths large--seven-twelfths"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_3.07.27_PM_1080x.png" />
+                </div>
+            </div>
+
+            <div class="green-color grid orderBox">
+                    <h2>ORDER TODAY AND GET 50% OFF STOREWIDE</h2>
+                    <p class="t-shirt">(+ a free T-Shirt?)</p>
+            </div>
+
+            <div class="grid specifications">
+                <h2>Specifications</h2>
+                    <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/seprator.png" class="sepjet" />
+
+                <div class="sep-jet"></div>
+                    <center><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_12.50.22_PM_1080x.png" /></center>
+
+                <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths"></div>
+                        <h3>Technical Specifications</h3>
+                        <ul class="techList">
+                            <li><span>Weight : </span> 5.5lbs (2.5kg)</li>
+                            <li><span>Dimension : </span>L462.3mm x W228.4mm x H149.6mm</li>
+                            <li><span>Depth : </span>131ft (40m)</li>
+                            <li><span>Speed : </span>3 knots (5.56km/h)</li>
+                            <li><span>Propeller : </span>2</li>
+                            <li><span>Total Thrust : </span>17.6lbf (8kg)</li>
+                            <li><span>Light : </span>Indicates power status</li>
+                            <li><span>Battery : </span>120Wh (Detachable Li-polymer battery)</li>
+                            <li><span>Battery Capacity : </span>1100mAh</li>
+                            <li><span>Duration : </span>Up to 1 hour</li>
+                            <li><span>Charge Time : </span>2 hours</li>
+                            <li><span>Buoyancy : </span>Zero buoyancy</li>
+                            <li><span>GoPro Mount : </span>Built-in</li>
+
+                            <li><span>Noise : </span>50dB Ultra Silent</li>
+
+                            <li><span>Temperature : </span>High temperature 122℉ (50℃)<br/>
+                            Low temperature -4℉ (-20℃)
+                            </li>
+
+                        </ul>
+
+                        <div class="grid-item product-single__meta--wrapper medium-up--one-half">
+
+                        <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_12.50.42_PM.png" />
+                        </div>  
+                    </div>
+
+            </div>
+
+               
+            <div class="saving">
+                    <!-- video here -->
+
+                    <center><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_12.51.09_PM_1080x.png"/>
+                    <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/Screen_Shot_2018-11-18_at_12.51.22_PM.png" alt=""></center>
+
+
+                    <h2 class="howMuch">SAVE MONEY ON AQUATICS NOW</h2>
+                    <!-- <h3 class="subtitle">WITH WHTESHARK MIX</h3> -->
+                    <div class="sepjet2">
+                        <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/seprator.png" class="sepjet" />
+                    </div>
+                    
+                    <ul class="savingList">
+                        <li>Jet-ski rental<span>($100/hour)</span></li>
+                        <li>Underwater mini-sub ride<span>($40/hour)
+                            </span></li>
+                        <li>Professional DPV<span>($1,000 to $4,000 or more)</span></li>
+                        <li>Longer dives = more bang for your buck <span>($100/hour)</span></li>
+                    </ul>
+                    <h3>Total Value: Upto <span>$5000</span></h3>
+                    <p>Get Your WHITESHARK MIX for only</p>
+                    <h2 class="saved">$649 <span>Only</span></h2>
+                </div>
+
+                <div class="green-color grid orderBox">
+                    <h2>ORDER TODAY AND GET 50% OFF STOREWIDE</h2>
+                    <p class="t-shirt">(+ a free T-Shirt?)</p>
+                </div>
+
+
+                <div class="compareBox">
+                    <h4>Which One is Best For You?</h4>
+                    <h2>WHITESHARK MIX vs Old Propeller Model</h2>
+                    <center><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/table1_1080x.png"/></center>
+
+
+                    
+
+                    <!-- <div class="grid comparison">
+                        <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths leftBox">
+                            <h2>OTHERS</h2>
+                                <ul>
+                                    <li>Low power</li>
+                                    <li>Expensive</li>
+                                    <li>Large size</li>
+                                    <li>Heavy</li>
+                                    <li>Noisy</li>
+                                    <li>Unsafe</li>
+                                    <li>Short battery life</li>
+                                </ul>
+                        </div>
+
+                        <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths rightBox">
+                        <h2>AQUAJET DIVE H2</h2>
+                            <ul>
+                                <li>Powerful</li>
+                                <li>Cheaper</li>
+                                <li>Hydrodynamic</li>
+                                <li>Portable</li>
+                                <li>Ultra-Silence</li>
+                                <li>Safety design</li>
+                                <li>Long battery life</li>
+                                <li>High quality</li>
+                                <li>Easy to use</li>
+                                <li>Dive deep</li>
+                                <li>Ergonomics design</li>
+                                <li>User friendly design</li>
+                                <li>GoPro mount</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+
+
+                <div class="grid inAction">
+                    <h2>AQUAJET DIVE H2</h2>
+                
+                    <div class="grid__item product-single__meta--wrapper medium--two-twelfths large--two-twelfths" style="padding-left: 0px;">
+                    <p class="subTitle">USE CASES</p>
+                    </div>
+                <div class="grid__item product-single__meta--wrapper medium--ten-twelfths large--ten-twelfths"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/aquajet_useCases.jpg" />
+                </div>
+                </div>
+                
+                <div class="green-color grid orderBox">
+                    <h2>ORDER TODAY AND GET 50% OFF STOREWIDE</h2>
+                    <p class="t-shirt">(+ a free T-Shirt?)</p>
+                </div>
+
+
+                <div class="grid faq">
+                <h2>FAQ</h2>
+                <div class="faqItem">
+                <h4>Q: How easy is it to control the Whiteshark MIX?</h4>
+                <p>Answer: Very easy. With an inclined down design of the handle, the most comfortable angle appears when you hold the handle. Whether you are snorkeling or diving, you can control it flexibly and easily. </p>
+                </div>
+                <div class="faqItem">
+                <h4>Q: Can the Whiteshark MIX speed be adjusted?</h4>
+                <p>Answer: No. In product development process, we invite users in the swimming pool, the beach and other feasible environment.Through hundreds of tests, at last,we consider the battery life, user experience and other aspects of the data, we set an optimum speed . At the same time, it makes operation simple beyond imagination.</p>
+                </div>
+                <div class="faqItem">
+                <h4>Q: Can I take the Whiteshark MIX on the plane?</h4>
+                <p>Answer: Yes. The maximum battery is 120Wh.we use the battery fully comply with this requirement. Aviation stipulates that the battery power of portable equipment shall not exceed 160wh. We follow the aviation rules and the battery is designed as 120wh (detachable Li-polymer battery) to ensure your good usage experience and make sure you can travel around the world with the WhiteShark Mix.</p>
+                <div class="faqItem">
+                <h4>Q: Is the Whiteshark MIX safe to use?
+                    </h4>
+                <p>Answer: Yes. The propeller carries out the design of the safety net. The finger will not touch the propeller so as to avoid unnecessary damages.</p>
+                </div>
+                <div class="faqItem">
+                        <h4>Q: Is the Whiteshark MIX safe around marine life?</h4>
+                        <p>Anwer: Mix runs with the noise controlled within 50db, which will not cause any noise damage to marine creatures, allowing you to be in close contact with underwater creatures.</p>
+                    </div>
+                </div>
+                </div>

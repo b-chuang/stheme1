@@ -9,7 +9,7 @@
     {% if collection %}
       <span class="divider" aria-hidden="true">&rsaquo;</span>
       {% if collection.handle %}
-        {% capture url %}/collections/{{ collection.handle }}{% whiteshark %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
         {{ collection.title | link_to: url }}
       {% endif %}
     {% endif %}
