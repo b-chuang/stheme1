@@ -25,12 +25,18 @@ h1.product-single__title span {
   color: #e4ae0c;
 }
 
+.prodIntro p {
+  text-align: left;
+}
+
 
 .saleText {
     font-size: 24px;
     font-weight: bold;
     color: #0080a5;
+    margin-bottom:20px;
 }
+
 .saleText span {
     color: #ce032c;
 }
@@ -68,13 +74,13 @@ h1.product-single__title span {
 	background:transparent!important;
 }
 .order-btn-icon {
-    background: #d02d2d!important;
-    border: 2px solid #ab4400;
+    background: #4CAF50!important;
+    border: 2px solid #000;
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: bold;
-    padding-left: 0px!important;
-    padding-right: 0px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
     outline: none;
 }
 .order-btn-icon span{
@@ -98,6 +104,12 @@ div#productIntro {
     font-size: 14px;
     text-align: left;
 }
+
+#featureImage1Mob {
+      display:none;
+    }
+
+
 .product-single__meta {
     padding-top: 5px;
 }
@@ -206,15 +218,15 @@ div#productIntro {
     text-transform: unset;
 }
 a.orderBtnCTA {
-    background: #d02d2d;
-    border: 2px solid #1b1c1c;
+    background: #4CAF50;
+    border: 2px solid #000;
     color: #ffffff;
-    padding: 16px 0px;
+    padding: 16px 1px;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     display: block;
-      text-align: center;
+    text-align: center;
 }
 .grid.highlightBox, .grid.specifications {
     background: white;
@@ -269,12 +281,12 @@ ul.boxList {
 }
 
 .sepjet2compare {
-  width: 56%;
+    width: 56%;
     margin: auto;
     display: block;
     position: relative;
     top: -50px;
-    left:320px;
+    left:120px;
 }
 
 ul.boxList li:hover img {
@@ -365,14 +377,26 @@ ul.boxList li {
     left:-90px
 
 }
+
+img.highlightImage {
+  display:block; 
+  max-width: 100%;"
+}
+
+.hlMobTitle{
+      display:none;
+    }
+
+    .hlMobInfo {
+      display:none;
+    }
+
 ul.savingList {
   line-height: 2.6rem;
   letter-spacing: 2.6px;
   font-size:1rem;
 
 }
-
-
   .savingList li{
   list-style:none;
   text-align:center;
@@ -389,6 +413,14 @@ ul.savingList {
   	font-style:italic;
     color: #484848!important;
     -webkit-text-stroke: 3px #484848;
+}
+
+.testMob{
+  display:none;
+}
+
+.facebookRevMob {
+  display:none;
 }
 
 .triple {
@@ -451,7 +483,7 @@ ul.savingList {
     font-weight: bold;
     -webkit-text-stroke: 2px;
     letter-spacing: 2px;
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
     margin:30px;
     margin-bottom:40px;
@@ -466,6 +498,11 @@ ul.savingList {
     letter-spacing: 1px;
     font-size: 1.5rem;
 }
+
+.compGridMob {
+  display:none;
+}
+
 .grid.comparison {
     box-shadow: 1000px 0px #005b7f, -1000px 0px #e6e6e6;
   background: rgba(230,230,230,1);
@@ -604,8 +641,9 @@ div#shopify-product-reviews h2 {
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
     <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
-    {% assign current_variant = product.selected_or_first_available_variant %}
+   
     {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+    {% assign current_variant = product.selected_or_first_available_variant %}
 
     <div class="grid product-single">
     <h1 class="product-single__title" itemprop="name">
@@ -853,16 +891,25 @@ div#shopify-product-reviews h2 {
               <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
             {% endif %}
 
-            <div id="htusb_container_html_prod_generic_pricing" class="hidden"></div>
-           
+            <div class="prodIntro">
+            {% comment %}  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/diver_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>Designed for scuba divers, free divers, snorkelers and everyday aquatic fun enthusiasts.</p>
+            
+            
+          {% comment %}   <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>
+            <b>WHITESHARK MIX</b> electric propulsion system, equipped with twin propellers can glide you through the water in an exhilarating, easy, and fun way, on the surface or below, with top speeds of <b>5.56 km/h</b> and depths up to <b>131 feet</b>.</p>
+            </div>
+
+            <hr class="hr--small hidden">
             <span id="ProductPrice"
               class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}"
               itemprop="price"
               content="{{ current_variant.price | divided_by: 100.00 }}">
               {{ current_variant.price | money }}
             </span>
-            
-            <hr class="hr--small hidden">
+            <hr class="hr--small">
+
             
 
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">
@@ -950,7 +997,7 @@ div#shopify-product-reviews h2 {
                     {% endif %}
                   </span>
                 </button>
-                <span class="assurance">IN STOCK & SHIPPED SAME DAY IF ORDERED BEFORE 2PM PST</span>
+               {% comment %}  <span class="assurance">IN STOCK & SHIPPED SAME DAY IF ORDERED BEFORE 2PM PST</span> {% endcomment %}
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
@@ -967,6 +1014,8 @@ div#shopify-product-reviews h2 {
         </div>
       </div>
     </div>
+
+    
 
 	<div class="product-single__description rte" itemprop="description">
             {{ product.description }}
@@ -1103,10 +1152,58 @@ div#shopify-product-reviews h2 {
 
   @media (max-width:568px) 
   {
+
+    h1.product-single__title {
+      font-size:1.6rem;
+      margin:0px;
+    }
+
+    .subTitleText {
+      font-size:0.78rem;
+      text-align:center;
+      letter-spacing:0;
+    }
+
+    .reviewTop {
+      font-size: 0.9rem;
+    }
+
+    .saleText {
+      font-size:0.9rem;
+      margin-bottom: 45px;
+    }
+
+    .saleText img {
+      display:none;
+    }
+
+    #featureImage1 {
+      display:none;
+    }
+
     .contentBox p {
       margin-top:13px;
       margin-bottom: 10px;
       padding-right:40px;
+    }
+
+    .testDesk {
+      display:none;
+    }
+
+    .testMob {
+      display:block;
+      margin:auto;
+    }
+
+    .facebookRev {
+      display:none;
+    }
+
+    .facebookRevMob {
+      display:block;
+      margin:auto;
+      padding:30px 5px;
     }
 
       
@@ -1136,10 +1233,50 @@ div#shopify-product-reviews h2 {
 
      .grid.highlightBox h2 {
       font-size: 1.7rem;
+      margin-bottom:25px;
+      padding-top:30px;
+    }
+
+    .sepjet2hl img{
+      display:none;
+    }
+
+    .specifications img.sepjet {
+      display:none;
+    }
+
+    .sepjet2 img{
+      display:none;
+    }
+
+    .sepjet2compare {
+      display:none;
     }
 
     .shadowVertical {
       display:none;
+    }
+    
+    img.highlightImage {
+      display:none;
+    }
+
+    .hlMobTitle{
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+      width:90%;
+    }
+
+    .hlMobInfo {
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+      width:90%;
+    }
+
+    .hlMobInfo p {
+      padding:10px;
     }
 
     .testimonial h2 {
@@ -1163,8 +1300,18 @@ div#shopify-product-reviews h2 {
       padding-top: 0px;
     }
 
+    .saving h4 {
+      padding-top: 30px;
+      font-size:0.9rem;
+    }
+
     ul.techList {
-      font-size:1rem;
+      font-size:0.7rem;
+      list-style:none;
+    }
+
+    ul.techList li span {
+      font-weight:900;
     }
 
     .specifications img {
@@ -1175,9 +1322,86 @@ div#shopify-product-reviews h2 {
       max-width:100%;
     }
 
+    .compareBox {
+      margin-top:30px;
+    }
+
+    .compareBox h4 {
+      font-size:1rem;
+    }
+
+    .ver {
+      font-size:1rem;
+    }
+
+    .compareBox h2 {
+      font-size:1rem;
+      font-weight:400;
+      -webkit-text-stroke: 0px;
+      letter-spacing:none;
+      margin:0px;
+    }
+
+    .wsSpan {
+      font-size: 1rem;
+    }
+
+    .compGridDesk {
+      display:none;
+    }
+
+    .compareBox img {
+      width: 100% ;
+    }
+
+    .compGridMob {
+      display:block;
+      margin:auto;
+    }
+
+
     .faqItem {
       padding: 5px 25px;
     }
+
+    #featureImage1Mob {
+      display:block;
+    }
+
+    h2.howMuch {
+      font-size:1.1rem;
+      padding-bottom: 20px;
+    }
+
+    .savingList li {
+      font-size:0.8rem;
+      letter-spacing:0;
+    }
+
+    .saving h2 {
+      -webkit-text-stroke :1px;
+      font-weight:500;
+    }
+
+    .saving h3 {
+      font-size:1.0rem;
+    }
+
+    .inAction h4 {
+      padding-top:30px;
+      margin-bottom:20px;
+      font-size: 1rem;
+    }
+
+    .grid.faq h2 {
+    margin-top:40px;
+    margin-bottom:20px;
+    font-family: inherit;
+    font-weight: bold;
+    -webkit-text-stroke: 1px;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
 
     .topTitle{font-size:1.1rem!important;}
     .techSpec .grid__item .techDetails {
@@ -1185,14 +1409,16 @@ div#shopify-product-reviews h2 {
       padding-top: 14px!important;
     }
     .techDetails {
-       width: calc(100% - 62px)!important;
+      width: calc(100% - 62px)!important;
     }
-    .compareTable table{max-width:100%!important;; overflow:hidden!important}
+    .compareTable table{max-width:100%!important;;                 overflow:hidden!important}
+    
     .compareTable tr td{padding:5px!important;}
-     .subTitle{
+    
+    .subTitle{
     	font-size:0.8rem!important;
-          text-align: center;
-    padding-left: 15px!important;;
+      text-align: center;
+      padding-left: 15px!important;;
     }
     .flashSale {
     	font-size: 1.3rem!important;
