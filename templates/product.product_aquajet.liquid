@@ -8,7 +8,7 @@
     padding-top: 10px;
 }
 h1.product-single__title {
-    font-weight: 900;
+    font-weight: 700;
     font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
    /*  -webkit-text-stroke: #015f87 3px; */
     color: #1b1c1c;
@@ -19,7 +19,7 @@ h1.product-single__title {
 h1.product-single__title span {
   	font-style:italic;
     color: #484848!important;
-    -webkit-text-stroke: 4px #484848;
+    -webkit-text-stroke: 2px #484848;
 }
 .spr-icon-star:before {
   color: #e4ae0c;
@@ -336,17 +336,17 @@ ul.boxList li {
 .saving h2 {
     font-family: inherit;
     font-size: 2.3rem;
-    font-weight: bold;
-    -webkit-text-stroke: 2px;
+    font-weight: 700;
+    -webkit-text-stroke: 1px;
     color: #002637;
-  margin-bottom:0px;
-  margin-top:30px;
+    margin-bottom:0px;
+    margin-top:30px;
 }
   .saving h3{
   	margin: 0px;
     color: #005e88;
-    font-weight: bold;
-    -webkit-text-stroke: 2px;
+    font-weight: 500;
+    -webkit-text-stroke: 1px;
     font-size: 1.5rem;
   }
 .saving h2:after {
@@ -887,6 +887,7 @@ div#shopify-product-reviews h2 {
                 </span>
               </span>
               <span id="ComparePriceA11y" class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+
             {% else %}
               <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
             {% endif %}
@@ -916,10 +917,12 @@ div#shopify-product-reviews h2 {
             <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
             {% capture "form_classes" %}
-              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+              product-single__form
+              {% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
             {%- endcapture %}
 
-            {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
+            {% capture "form_id" %}AddToCartForm--{{ section.id }}
+            {%- endcapture %}
 
             {% form 'product', product, class:form_classes, id:form_id %}
               {% unless product.has_only_default_variant %}
@@ -987,6 +990,7 @@ div#shopify-product-reviews h2 {
               </div>
               {% endif %}
 
+          
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn order-btn-icon btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
                   <span class="btn__text"> 
@@ -1311,7 +1315,7 @@ div#shopify-product-reviews h2 {
     }
 
     ul.techList li span {
-      font-weight:900;
+      font-weight:700;
     }
 
     .specifications img {
