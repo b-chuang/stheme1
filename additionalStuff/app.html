@@ -1,0 +1,48 @@
+ga('require', 'GTM-5X9QMTF');
+/*function createCookie(a,b,c){if(c){var d=new Date;d.setTime(d.getTime()+c*60*1e3);var e=";
+expires="+d.toUTCString()}else var e="";document.cookie=a+"="+b+e+"; path=/"}function readCookie(a){for(var
+b=a+"=",c=document.cookie.split(";"),d=0;d<c.length;d++) {for(var e=c[d];"
+    "==e.charAt(0);)e=e.substring(1,e.length);if(0==e.indexOf(b))return e.substring(b.length,e.length)}return null}function eraseCookie(a){createCookie(a,"",-1)}function crtmedir(a){var b=document.createDocumentFragment(),c=document.createElement("
+    div");for(c.innerHTML=a;c.firstChild;)b.appendChild(c.firstChild);return b}function startTimer(start, duration,
+    display){var diff,minutes,seconds;function timer(){diff=duration-(((Date.now()-start)/1000)|0);minutes=(diff /
+    60)|0;seconds=(diff % 60)|0;minutes=minutes < 10 ? "0" + minutes : minutes;seconds=seconds < 10 ? "0" + seconds :
+    seconds;display.textContent=minutes + ":" + seconds; if (diff <=0){clearInterval(inti);document.getElementById("countdownhere").innerHTML="Order reservation ended."
+    ;start=Date.now() + 1000;}};timer();var inti=setInterval(timer, 1000);}var pdm=crtmedir('<div class="countdownholder">
+    <div id="countdownhere" style="display:block;background:#fff5d2;padding:10px 20px;border:1px solid #e3df74;font-size:14px;color:#2c2c2c;font-weight:bold;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; margin:20px 0px">Your
+        order is reserved for <span id="time"></span> minutes! </div>
+    <div style="display:table;width:100%">
+        <div style="width:33.3%;display:table-cell;float:none;height:100%;vertical-align:middle;text-align:center"><img
+                src="https://cdn.shopify.com/s/files/1/1319/2435/t/3/assets/truste.png" style="margin:0 auto"></div>
+        <div style="width:33.3%;display:table-cell;float:none;height:100%;vertical-align:middle;text-align:center"><img
+                src="https://cdn.shopify.com/s/files/1/1319/2435/t/3/assets/paypalverified.png" style="margin:0 auto"></div>
+        <div style="width:33.3%;display:table-cell;float:none;height:100%;vertical-align:middle;text-align:center"><img
+                src="https://cdn.shopify.com/s/files/1/1319/2435/t/3/assets/mcafeesecured.png" style="margin:0 auto"></div>
+    </div>
+    </div>');if(window.location.href.indexOf('checkout') > -1 && document.location.href.indexOf('thank_you') === -1 &&
+    document.location.href.indexOf('orders') === -1){window.onload = function () {
+    document.getElementsByClassName('main__header')[0].appendChild(pdm);var dolzina=15;var ten=60*dolzina;var
+    starttime=Date.now();var xcnt=readCookie('prtcntdwn');if(xcnt){if(starttime<xcnt) {ten=(xcnt-starttime)/1000;}else{eraseCookie('ptcntdwn');createCookie('prtcntdwn',Date.now()+(ten*1000),ten+1);}}else{createCookie('prtcntdwn',Date.now()+(ten*1000),ten+1);}display=document.querySelector('#time');startTimer(starttime,
+        ten, display);};*/ var logoDiv=document.querySelector(".logo__text").parentNode;
+        logoDiv.setAttribute("id","logo-node"); document.querySelector(".logo__text").style.display="none" ; var
+        bigLogoDiv=document.querySelector(".main__header").children[0]; bigLogoDiv.setAttribute("id","big-logo-node");
+        document.getElementById("big-logo-node").children[0].style.display="none" ; var logo=document.createElement("img");
+        logo.setAttribute("src",
+        "https://cdn.shopify.com/s/files/1/0020/1542/8674/files/gotq_71c3865f-5274-46a3-9bb6-264bff8e7ce8.png" );
+        logo.setAttribute("style", "width:100%" ); logo.setAttribute("alt", "Logo Mobile" ); var logo2=document.createElement("img");
+        logo2.setAttribute("src",
+        "https://cdn.shopify.com/s/files/1/0020/1542/8674/files/gotq_71c3865f-5274-46a3-9bb6-264bff8e7ce8.png" );
+        logo2.setAttribute("style", "width:100%" ); logo2.setAttribute("alt", "Logo" );
+        document.getElementById("logo-node").appendChild(logo);
+        document.getElementById("big-logo-node").appendChild(logo2); if (/checkouts/.test(window.location.href)) {
+        ;if('object'==typeof Checkout&&'function'==typeof
+        Checkout.$){Checkout.$('.alt-payment-list-container').hide();Checkout.$('.alternative-payment-separator').hide();}
+        var my_awesome_script=document.createElement('script'); my_awesome_script.setAttribute('src','https://cdn.shopify.com/s/files/1/1302/6949/t/48/assets/BGSchScript.js?3326235384619915738');
+        my_awesome_script.setAttribute('id','myScript'); document.head.appendChild(my_awesome_script); };
+        setTimeout(function(){ document.querySelector(".emailclass").style.bottom='5px' ; var bigDiv=document.querySelector(".wyustit").parentNode;
+        bigDiv.setAttribute("id","wyustit-reviews"); var elem=document.createElement("img"); elem.setAttribute("src",
+        "https://cdn.shopify.com/s/files/1/0020/1542/8674/files/gotq_71c3865f-5274-46a3-9bb6-264bff8e7ce8.png" );
+        elem.setAttribute("style", "width:100%" ); elem.setAttribute("alt", "Reviews" );
+        document.getElementById("wyustit-reviews").style.background="#f3f3f3" ;
+        document.querySelector(".sidebar").style.background="#f3f3f3" ;
+        document.getElementById("wyustit-reviews").style.boxShadow="-10px 0 0 0 #f3f3f3, 10px 0 0 0 #f3f3f3"
+        document.getElementById("wyustit-reviews").appendChild(elem); }, 5000);
