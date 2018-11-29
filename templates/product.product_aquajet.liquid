@@ -508,6 +508,12 @@ ul.savingList {
   display:none;
 }
 
+.compOldvNew img{
+      width: 70%;
+      margin-left:40%;
+    }
+
+
 .grid.comparison {
     box-shadow: 1000px 0px #005b7f, -1000px 0px #e6e6e6;
   background: rgba(230,230,230,1);
@@ -988,14 +994,27 @@ div#shopify-product-reviews h2 {
                 {% endfor %}
               </select>
 
+              {% if section.settings.product_quantity_enable == false %}
+                <style>
+                  .selector-wrapper select, .product-variants select {
+                    margin-bottom: 13px;
+                  }
+                </style>
+              {% endif %}
+
               {% if section.settings.quantity_enabled %}
               <div class="product-single__quantity">
+
                 <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
                 <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
               </div>
               {% endif %}
 
-          
+              <div id="w3-product-accessories" data-product-handle="{{ product.handle }}">
+                <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
+              </div>
+
+            
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn order-btn-icon btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
                   <span class="btn__text"> 
@@ -1366,6 +1385,11 @@ div#shopify-product-reviews h2 {
     .compGridMob {
       display:block;
       margin:auto;
+    }
+
+    .compOldvNew img{
+      width: 50%;
+      margin-left:0%;
     }
 
 
