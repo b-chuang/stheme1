@@ -25,6 +25,10 @@ h1.product-single__title span {
   color: #e4ae0c;
 }
 
+.prodIntroMob {
+      display:none;
+    }
+
 .prodIntro p {
   text-align: left;
 }
@@ -1066,6 +1070,16 @@ div#shopify-product-reviews h2 {
 
           </div>
 
+          <div class="prodIntroMob">
+            {% comment %}  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/diver_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>Designed for scuba divers, free divers, snorkelers and everyday aquatic fun enthusiasts.</p>
+            
+            
+          {% comment %}   <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>
+            <b>WHITESHARK MIX</b> electric propulsion system, equipped with twin propellers can glide you through the water in an exhilarating, easy, and fun way, on the surface or below, with top speeds of <b>5.56 km/h</b> and depths up to <b>131 feet</b>.</p>
+            </div>
+
           
           
           {% if section.settings.social_sharing_products %}
@@ -1235,6 +1249,15 @@ div#shopify-product-reviews h2 {
 
     .saleText img {
       display:none;
+    }
+
+    .prodIntro {
+      display:none;
+    }
+
+    .prodIntroMob {
+      display:block;
+      margin-top:30px;
     }
 
     #featureImage1 {
