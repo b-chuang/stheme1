@@ -1003,12 +1003,44 @@ div#shopify-product-reviews h2 {
               {% endif %}
 
               {% if section.settings.quantity_enabled %}
-              <div class="product-single__quantity">
-
-                <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
-                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
-              </div>
+                <div class="product-single__quantity grid">
+                  <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+                </div>
               {% endif %}
+
+
+               <label for="quantity" class="quantity-selector quantity-selector-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                
+                <span class="quantityMsg"> Buy 2 or More & Get 20% off</span>
+
+        {% if section.settings.product_quantity_message %}
+          <div id="variantQuantity-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity < 10 and variant.inventory_quantity > 0 %} is-visible{% endif %}">
+              {% include 'svg-definitions' with 'stock-icon' %}
+                {% assign qty = variant.inventory_quantity %}
+                <span id="variantQuantity-{{ section.id }}__message">{{ 'products.product.only_left' | t: count: qty }}</span>
+          </div>
+        {% endif %}
+
+        {% if section.settings.product_incoming_message %}
+          <div id="variantIncoming-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity <= 0 and variant.incoming %} is-visible{% endif %}">
+            {% if variant.inventory_management and variant.inventory_quantity == 0 or variant.inventory_quantity < 0 and current_variant.incoming %}
+              {% include 'svg-definitions' with 'stock-icon' %}
+              {% if variant.available %}
+                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
+                <span id="variantIncoming-{{ section.id }}__message">{{ 'products.product.will_not_ship_until' | t: date: date  }}</span>
+              {% else %}
+                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
+                <span id="variantIncoming-{{ section.id }}__message">{{ 'products.product.will_be_in_stock_after' | t: date: date }}</span>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+          {% unless qb_loaded == 'true' %}
+          <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>{% assign qb_loaded = 'true' %}
+          {% endunless %}
+
 
               <div id="w3-product-accessories" data-product-handle="{{ product.handle }}">
                 <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
@@ -1019,7 +1051,7 @@ div#shopify-product-reviews h2 {
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn order-btn-icon btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
                   <span class="btn__text"> 
                     {% if current_variant.available %}
-                       	ORDER NOW & GET FREE SHIPPING <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/shipIcon.png">
+                       	ADD TO CART <span class="icon icon-cart"></span>
                     {% else %}
                       {{ 'products.product.sold_out' | t }}
                     {% endif %}
@@ -1470,5 +1502,3 @@ div#shopify-product-reviews h2 {
     {{ product | json }}
   </script>
 {% endunless %}
-
-
