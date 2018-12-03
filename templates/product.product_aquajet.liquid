@@ -529,6 +529,17 @@ background: -ms-linear-gradient(left, rgba(230,230,230,1) 0%, rgba(230,230,230,1
 background: linear-gradient(to right, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#005b7f', GradientType=1 );
 }
+
+.flexParent {
+  display:flex;
+  flex-direction:row;
+  margin-left:90px;
+}
+
+.quantInput {
+  padding-left:10px;
+}
+
 .grid.comparison .leftBox{
     background-color:#e6e6e6;
 }
@@ -662,7 +673,7 @@ div#shopify-product-reviews h2 {
 
     <div class="grid product-single">
     <h1 class="product-single__title" itemprop="name">
-        <span>WHITESHARK MIX</span>
+        <span>Aquajet</span>
         <div class="subTitleText"> World's Smallest Twin-Prop Underwater Scooter</div>
     
     </h1>
@@ -893,7 +904,7 @@ div#shopify-product-reviews h2 {
             {% endcomment %}
 
             {% if product.compare_at_price_max > product.price %}
-              <span id="PriceA11y">{{ 'products.general.regular_price' | t }}</span>
+              <span class="hidden" id="PriceA11y">{{ 'products.general.regular_price' | t }}</span>
               <span class="product-single__price--wrapper hidden">
                 <span id="ComparePrice" class="product-single__price--compare-at">
                   {% if current_variant.compare_at_price > current_variant.price %}
@@ -904,17 +915,22 @@ div#shopify-product-reviews h2 {
               <span id="ComparePriceA11y" class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
 
             {% else %}
-              <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+              <span id="PriceA11y"  class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
             {% endif %}
 
             <div class="prodIntro">
-            {% comment %}  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/diver_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
-            <p>Designed for scuba divers, free divers, snorkelers and everyday aquatic fun enthusiasts.</p>
-            
-            
-          {% comment %}   <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>"Previously exclusive only to movie secret agents, Navy SEALs and commercial divers, this incredible technology is
+                now released to the public and is finally affordable!"
+
+                Designed for scuba divers, free divers, snorkelers and everyday aquatic fun enthusiasts.</p>
+
+
+            {% comment %} <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon" />
+            {% endcomment %}
             <p>
-            <b>WHITESHARK MIX</b> electric propulsion system, equipped with twin propellers can glide you through the water in an exhilarating, easy, and fun way, on the surface or below, with top speeds of <b>5.56 km/h</b> and depths up to <b>131 feet</b>.</p>
+                <b>Aquajet Dive H2</b> unique wing design and electric propulsion system, with powerful thrust enough to tow up to
+                4 people, can fly you through the water in an exhilarating, easy, and fun way, on the surface or below, with top
+                speeds of 9 km/h and depths up to 60 feet.<b>5.56 km/h</b> and depths up to <b>131 feet</b>.</p>
             </div>
 
             <hr class="hr--small hidden">
@@ -939,66 +955,73 @@ div#shopify-product-reviews h2 {
             {% capture "form_id" %}AddToCartForm--{{ section.id }}
             {%- endcapture %}
 
-            {% form 'product', product, class:form_classes, id:form_id %}
-              {% unless product.has_only_default_variant %}
-                {% for option in product.options_with_values %}
-                  <div class="radio-wrapper js product-form__item">
-                    <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
-                      for="ProductSelect-option-{{ forloop.index0 }}">
-                      {{ option.name | escape }}
-                    </label>
-                    {% if section.settings.product_selector == 'radio' %}
-                      <fieldset class="single-option-radio"
-                        name="{{ option.name | handleize }}"
-                        id="ProductSelect-option-{{ forloop.index0 }}">
-                        {% assign option_index = forloop.index %}
-                        {% for value in option.values %}
-                          {% assign variant_label_state = true %}
-                          {% if product.options.size == 1 %}
-                            {% unless product.variants[forloop.index0].available  %}
-                              {% assign variant_label_state = false %}
-                            {% endunless %}
-                          {% endif %}
-                          <input type="radio"
-                            {% if option.selected_value == value %} checked="checked"{% endif %}
-                            {% unless variant_label_state %} disabled="disabled"{% endunless %}
-                            value="{{ value | escape }}"
-                            data-index="option{{ option_index }}"
+            <div class="flexParent">
+              <div class="variantInput"> {% comment %} varInputStart {% endcomment %}
+
+                {% form 'product', product, class:form_classes, id:form_id %}
+                  {% unless product.has_only_default_variant %}
+                    {% for option in product.options_with_values %} 
+                    {% comment %} START OF VARIANT SELECTION {% endcomment %}
+                      <div style="text-align:center" class="radio-wrapper js product-form__item">
+                        <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
+                          for="ProductSelect-option-{{ forloop.index0 }}">
+                          {{ option.name | escape }}
+                        </label>
+                        {% if section.settings.product_selector == 'radio' %}
+                          <fieldset class="single-option-radio"
                             name="{{ option.name | handleize }}"
-                            class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
-                            id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
-                          <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
-                        {% endfor %}
-                      </fieldset>
-                    {% else %}
-                      <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                        {% for value in option.values %}
-                          <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
-                        {% endfor %}
-                      </select>
-                    {% endif %}
-                  </div>
-                {% endfor %}
-              {% endunless %}
+                            id="ProductSelect-option-{{ forloop.index0 }}">
+                            {% assign option_index = forloop.index %}
+                            {% for value in option.values %}
+                              {% assign variant_label_state = true %}
+                              {% if product.options.size == 1 %}
+                                {% unless product.variants[forloop.index0].available  %}
+                                  {% assign variant_label_state = false %}
+                                {% endunless %}
+                              {% endif %}
+                              <input type="radio"
+                                {% if option.selected_value == value %} checked="checked"{% endif %}
+                                {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                                value="{{ value | escape }}"
+                                data-index="option{{ option_index }}"
+                                name="{{ option.name | handleize }}"
+                                class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                                id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                              <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
+                            {% endfor %}
+                          </fieldset>
+                        {% else %}
+                          <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                            {% for value in option.values %}
+                              <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
+                            {% endfor %}
+                          </select>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endunless %}
 
-              <select name="id" id="ProductSelect" class="product-single__variants no-js">
-                {% for variant in product.variants %}
-                  {% if variant.available %}
-                    <option {% if variant == product.selected_or_first_available_variant %}
-                      selected="selected" {% endif %}
-                      data-sku="{{ variant.sku }}"
-                      value="{{ variant.id }}">
-                      {{ variant.title }} - {{ variant.price | money_with_currency }}
-                    </option>
-                  {% else %}
-                    <option disabled="disabled">
-                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                    </option>
-                  {% endif %}
-                {% endfor %}
-              </select>
+                  <select name="id" id="ProductSelect" class="product-single__variants no-js">
+                    {% for variant in product.variants %}
+                      {% if variant.available %}
+                        <option {% if variant == product.selected_or_first_available_variant %}
+                          selected="selected" {% endif %}
+                          data-sku="{{ variant.sku }}"
+                          value="{{ variant.id }}">
+                          {{ variant.title }} - {{ variant.price | money_with_currency }}
+                        </option>
+                      {% else %}
+                        <option disabled="disabled">
+                          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                        </option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+              </div> {% comment %} varInputEnd {% endcomment %}
 
-              {% if section.settings.product_quantity_enable == false %}
+              {% comment %} ==not sure whats below START== {% endcomment %}
+
+            {% comment %}   {% if section.settings.product_quantity_enable == false %}
                 <style>
                   .selector-wrapper select, .product-variants select {
                     margin-bottom: 13px;
@@ -1008,14 +1031,20 @@ div#shopify-product-reviews h2 {
 
               {% if section.settings.quantity_enabled %}
                 <div class="product-single__quantity grid">
-                  <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                  <label for="Quantity"  class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
                   <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
                 </div>
-              {% endif %}
+              {% endif %} {% endcomment %}
+
+              {% comment %} ==not sure whats above END== {% endcomment %}
 
 
-               <label for="quantity" class="quantity-selector quantity-selector-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                <div class="quantInput"> {% comment %} child2 START {% endcomment %}
+                  <label for="quantity" class="quantity-selector quantity-selector-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                </div>
+
+                </div> {% comment %} child2 END {% endcomment %}
                 
                 <span class="quantityMsg"> Buy 2 or More & Get 20% off</span>
 
@@ -1258,6 +1287,16 @@ div#shopify-product-reviews h2 {
     .prodIntroMob {
       display:block;
       margin-top:30px;
+    }
+
+    .flexParent {
+      display:flex;
+      flex-direction:row;
+      margin-left:25px;
+    }
+
+    .quantInput {
+      padding-left:5px;
     }
 
     #featureImage1 {

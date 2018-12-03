@@ -2,28 +2,50 @@
 {% comment %}
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
+
 <style type="text/css">
 .main-content {
     padding-top: 10px;
 }
 h1.product-single__title {
-    font-weight: bold;
+    font-weight: 700;
     font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
-    -webkit-text-stroke: #015f87 3px;
-    color: #015f87;
-    text-shadow: 0px -2px #015f87;
+   /*  -webkit-text-stroke: #015f87 3px; */
+    color: #1b1c1c;
+    /* text-shadow: 0px -2px #015f87; */
   	letter-spacing: 1.5px;
     font-size: 2.6rem;
 }
 h1.product-single__title span {
+  	font-style:italic;
     color: #484848!important;
-    -webkit-text-stroke: 3px #484848;
+    -webkit-text-stroke: 2px #484848;
 }
+.spr-icon-star:before {
+  color: #e4ae0c;
+}
+
+.prodIntroMob {
+      display:none;
+    }
+
+.prodIntro p {
+  text-align: left;
+}
+
+.site-header{
+  padding:0px!important;
+  margin-bottom:-20px;
+  }
+
+
 .saleText {
     font-size: 24px;
     font-weight: bold;
     color: #0080a5;
+    margin-bottom:20px;
 }
+
 .saleText span {
     color: #ce032c;
 }
@@ -33,14 +55,27 @@ h1.product-single__title span {
     margin-right: 12px;
     margin-left: 12px;
 }
-img.wavyBorder {
+/* img.wavyBorder {
     height: unset!Important;
     width: 55%;
     margin-top: 0px;
     vertical-align: top;
+} */
+
+.forceSubTitle {
+  font-size:1.3rem; 
+  width: 55%; 
+  position:absolute; 
+  color:white; 
+  padding-left:115px; 
+  margin: auto; 
+  text-align: center; 
+  margin-top: 130px;
 }
+
 .subTitleText {
-    color: #018bae;
+    display:inline-block;
+    color: #1f1f1f;
     font-size: 18px;
     letter-spacing: 0.6px;
 }
@@ -48,13 +83,13 @@ img.wavyBorder {
 	background:transparent!important;
 }
 .order-btn-icon {
-    background: #ff6905!important;
-    border: 2px solid #ab4400;
+    background: #4CAF50!important;
+    border: 2px solid #000;
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: bold;
-    padding-left: 0px!important;
-    padding-right: 0px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
     outline: none;
 }
 .order-btn-icon span{
@@ -78,6 +113,12 @@ div#productIntro {
     font-size: 14px;
     text-align: left;
 }
+
+#featureImage1Mob {
+      display:none;
+    }
+
+
 .product-single__meta {
     padding-top: 5px;
 }
@@ -87,11 +128,13 @@ div#productIntro {
 .hidden{display:none!important;}
   
 .grid.gurantee-benefit {
-    background: #e5e5e5;
+	  margin: 40px -50px 40px -65px;  
+  	color:white;
+    background: #273A72;
     display: block;
-      margin-bottom: 0px;
-    box-shadow: 1000px 0px #e5e5e5, -1000px 0px #e5e5e5;
+    box-shadow: 1000px 0px #273A72, -1000px 0px #273A72;
 }
+
 .gurantee-benefit .imgBox {
     display: inline-block;
     width: 16%;
@@ -102,11 +145,13 @@ div#productIntro {
     float: right;
 }
 .contentBox h3 {
+  width:105%;
+  color:white;
     font-weight: bold;
     text-align: left;
     font-size: 1.1rem;
     letter-spacing: 0px;
-  margin-bottom:0px;
+    margin-bottom:0px;
 }
 .contentBox p {
     font-size: 0.9rem;
@@ -115,7 +160,8 @@ div#productIntro {
     padding-right: 0px;
 }
 .contentBox p {
-    margin-bottom: 0px;
+    margin-top:5px;
+    margin-bottom: 10px;
 }
 .grid.gurantee-benefit {
     padding-top: 20px;
@@ -141,7 +187,7 @@ div#productIntro {
     padding-bottom: 20px;
 }
    
-.green-color.orderBox h2:after {
+.orderToday h2:after {
     display:none;
 }
 .charity.grid h2:after {
@@ -155,15 +201,51 @@ div#productIntro {
     font-size: 2rem;
     -webkit-text-stroke: 2px;
 }
+.grid.orderToday {
+  	margin: 10px -5px;
+    background: #182e49;
+    box-shadow: 1000px 0px #182e49, -1000px 0px #182e49;
+    padding-top: 35px;
+    padding-bottom: 3px;
+}
+.grid.orderToday h2, .grid.orderToday h3 {
+    color: white;
+}
+.orderToday .grid__item {
+      padding-left: 15px!important;
+      padding-right: 15px!important;
+}
+.orderToday h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+  	margin-bottom:0px!important;
+}
+.orderToday h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 0px!important;
+    text-transform: unset;
+}
+a.orderBtnCTA {
+    background: #4CAF50;
+    border: 2px solid #000;
+    color: #ffffff;
+    padding: 16px 1px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
 .grid.highlightBox, .grid.specifications {
-    background: #f5f5f5;
-    box-shadow: 1000px 0px #f5f5f5, -1000px 0px #f5f5f5;
+    background: white;
+    box-shadow: 1000px 0px white, -1000px 0px white;
 }
   .grid.highlightBox h2:after, .grid.specifications h2:after{display:none;}
 
 .grid.highlightBox h2, .grid.specifications h2 {
-    margin-bottom: 10px;
-    padding-top: 10px;
+    margin-bottom: 50px;
+    padding-top: 80px;
     text-align: right;
     font-size: 3rem;
     font-family: inherit;
@@ -172,6 +254,7 @@ div#productIntro {
     color: #002637;
     text-shadow: 1px 1px 3px #6f6f6f;
 }
+  
 .grid.specifications h2{
 	text-align:center;
     text-transform:uppercase;
@@ -186,7 +269,7 @@ div#productIntro {
     color: #ddd;
     font-size: 3rem;
     padding-top: 0px;
-    left: -40%;
+    left: 50%;
     height: 0px;
     margin: 0;
     padding: 0;
@@ -203,8 +286,18 @@ ul.boxList {
     margin: auto;
     display: block;
     position: relative;
-    top: -28px;
+    top: -60px;
 }
+
+.sepjet2compare {
+    width: 56%;
+    margin: auto;
+    display: block;
+    position: relative;
+    top: -50px;
+    left:120px;
+}
+
 ul.boxList li:hover img {
     filter: invert(100);
 }
@@ -238,39 +331,84 @@ ul.boxList li {
     border-radius: 10px;
     transition: all 0.3s;
 }
-  .specifications img{max-width: 60%;}
+.specifications img {
+  max-width: 80%;
+  }
+
+
 .grid.specifications {
     padding-top: 40px;
     padding-bottom: 40px;
   	margin-bottom:0px;
 }
+
 .saving h2 {
     font-family: inherit;
     font-size: 2.3rem;
-    font-weight: bold;
-    -webkit-text-stroke: 2px;
+    font-weight: 700;
+    -webkit-text-stroke: 1px;
     color: #002637;
-  margin-bottom:0px;
-  margin-top:30px;
+    margin-bottom:0px;
+    margin-top:30px;
 }
   .saving h3{
   	margin: 0px;
     color: #005e88;
-    font-weight: bold;
-    -webkit-text-stroke: 2px;
+    font-weight: 500;
+    -webkit-text-stroke: 1px;
     font-size: 1.5rem;
   }
 .saving h2:after {
     display:none;
 }
  img.sepjet {
-    max-width: 81%;
-   	position:relative;
-   top:-10px;
+    max-width: 100%;
+    position:relative;
+    top:-68px;
+    left:-40px;
  }
+
+.sepjet2{
+    width: 56%;
+    margin: auto;
+    display: block;
+    position: relative;
+    top: -10px;
+    left:80px;
+}
+
+.sepjet2hl {
+    width: 56%;
+    margin: auto;
+    display: block;
+    position: relative;
+    top: -60px;
+    left:-90px
+
+}
+
+img.highlightImage {
+  display:block; 
+  max-width: 100%;"
+}
+
+.hlMobTitle{
+      display:none;
+    }
+
+    .hlMobInfo {
+      display:none;
+    }
+
+ul.savingList {
+  line-height: 2.6rem;
+  letter-spacing: 2.6px;
+  font-size:1rem;
+
+}
   .savingList li{
   list-style:none;
-    text-align:center;
+  text-align:center;
   }
 .savingList span {
     color: red;
@@ -279,13 +417,45 @@ ul.boxList li {
 .savingList li{
   color:grey;
 }
+
+.wsSpan {
+  	font-style:italic;
+    color: #484848!important;
+    -webkit-text-stroke: 3px #484848;
+}
+
+.testMob{
+  display:none;
+}
+
+.facebookRevMob {
+  display:none;
+}
+
+.triple {
+  margin:60px 0px;
+}
+
+.triple img {
+    max-width: 55%;
+}
+
 .saving h3 span {
-    color: green;
+    color: red;
 }
 .saving h3 {
     color: #222;
     font-size: 1.8rem;
 }
+  
+.saving h4 {
+    font-weight:500;
+    text-align:center;
+    padding-top:75px;
+    margin-bottom:40px;
+}
+  
+  
 .saving p {
     text-align: center;
     margin-top: 15px;
@@ -302,27 +472,52 @@ ul.boxList li {
     text-transform: uppercase;
     color: #949494!important;
 }
+
+
+.ver {
+  text-transform:lowercase; 
+  font-size :1.6rem;
+}
+
+.compareBox {
+    margin-top: 100px;
+}
+
+.compareBox img {
+  width:80%;
+}
+  
 .compareBox h2 {
     font-family: inherit;
     font-weight: bold;
     -webkit-text-stroke: 2px;
     letter-spacing: 2px;
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
-  margin:0;
+    margin:30px;
+    margin-bottom:40px;
 }
 .compareBox h2:after{
   	display:none;
 }
-.compareBox h4{
-  margin-bottom:10px;
-}
 .compareBox h4 {
+    margin-bottom:10px;
     text-align: center;
     color: #005e88;
     letter-spacing: 1px;
     font-size: 1.5rem;
 }
+
+.compGridMob {
+  display:none;
+}
+
+.compOldvNew img{
+      width: 70%;
+      margin-left:40%;
+    }
+
+
 .grid.comparison {
     box-shadow: 1000px 0px #005b7f, -1000px 0px #e6e6e6;
   background: rgba(230,230,230,1);
@@ -334,6 +529,17 @@ background: -ms-linear-gradient(left, rgba(230,230,230,1) 0%, rgba(230,230,230,1
 background: linear-gradient(to right, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 50%, rgba(0,91,127,1) 50%, rgba(0,91,127,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#005b7f', GradientType=1 );
 }
+
+.flexParent {
+  display:flex;
+  flex-direction:row;
+  margin-left:60px;
+}
+
+.quantInput {
+  padding-left:10px;
+}
+
 .grid.comparison .leftBox{
     background-color:#e6e6e6;
 }
@@ -392,6 +598,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', end
 .rightBox ul li {
     padding-bottom: 5px;
 }
+
+.inAction h4 {
+    padding-top:50px;
+    margin-bottom:50px;
+    text-align: center;
+    color: #005e88;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+}
+
+.inAction {
+  margin-top:
+}
+
 .inAction h2 {
     text-align: left;
     font-family: inherit;
@@ -415,6 +635,7 @@ div#shopify-product-reviews h2 {
     display:none;
 }
 .grid.faq h2 {
+    margin-top:60px;
     font-family: inherit;
     font-weight: bold;
     -webkit-text-stroke: 2px;
@@ -446,13 +667,28 @@ div#shopify-product-reviews h2 {
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
     <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
-    {% assign current_variant = product.selected_or_first_available_variant %}
+   
     {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+    {% assign current_variant = product.selected_or_first_available_variant %}
 
     <div class="grid product-single">
-      <h1 class="product-single__title" itemprop="name"><span>Aquajet</span> DIVE H2 DPV</h1>
-      <div class="reviewTop">Reviews Here</div>
-      <div class="subTitleText"><b>World's First Aircraft-Styled</b> Winged Underwater Scooter."Don't Swim - <b>Fly Through the Water!"</b></div>
+    <h1 class="product-single__title" itemprop="name">
+        <span>WHITESHARK MIX</span>
+        <div class="subTitleText"> World's Smallest Twin-Prop Underwater Scooter</div>
+    
+    </h1>
+      <div class="reviewTop">
+          <span class="spr-badge" id="spr_badge_1572940841021" data-rating="5.0">
+          <span class="spr-starrating spr-badge-starrating">
+            <i class="spr-icon spr-icon-star"></i>
+            <i class="spr-icon spr-icon-star"></i>
+            <i class="spr-icon spr-icon-star"></i>
+            <i class="spr-icon spr-icon-star"></i>
+            <i class="spr-icon spr-icon-star"></i>
+          </span>
+          <span class="spr-badge-caption">2 reviews</span>
+      </div>
+      
       <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>Fall Sale: </span> Save $50 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div>
       
       <div class="grid__item large--six-twelfths medium--twelfths-twelfths text-center">
@@ -477,7 +713,7 @@ div#shopify-product-reviews h2 {
             {% endcomment %}
             <div class="product-single__photo--flex-wrapper">
               <div class="product-single__photo--flex">
-                {% include 'image-style' with image: featured_image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
+                {% include 'image-style' with image: featured_image, width: 500, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
                 <div id="{{ wrapper_id }}" class="product-single__photo--container">
                   <div class="product-single__photo-wrapper" style="padding-top:{{ 1 | divided_by: featured_image.aspect_ratio | times: 100}}%;">
                     {% assign img_url = featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
@@ -668,7 +904,7 @@ div#shopify-product-reviews h2 {
             {% endcomment %}
 
             {% if product.compare_at_price_max > product.price %}
-              <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+              <span id="PriceA11y">{{ 'products.general.regular_price' | t }}</span>
               <span class="product-single__price--wrapper hidden">
                 <span id="ComparePrice" class="product-single__price--compare-at">
                   {% if current_variant.compare_at_price > current_variant.price %}
@@ -677,105 +913,179 @@ div#shopify-product-reviews h2 {
                 </span>
               </span>
               <span id="ComparePriceA11y" class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+
             {% else %}
               <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
             {% endif %}
-            <div id="productIntro"></div>
+
+            <div class="prodIntro">
+            {% comment %}  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/diver_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>Designed for scuba divers, free divers, snorkelers and everyday aquatic fun enthusiasts.</p>
+            
+            
+          {% comment %}   <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>
+            <b>WHITESHARK MIX</b> electric propulsion system, equipped with twin propellers can glide you through the water in an exhilarating, easy, and fun way, on the surface or below, with top speeds of <b>5.56 km/h</b> and depths up to <b>131 feet</b>.</p>
+            </div>
+
+            <hr class="hr--small hidden">
             <span id="ProductPrice"
-              class="hidden product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}"
+              class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}"
               itemprop="price"
               content="{{ current_variant.price | divided_by: 100.00 }}">
               {{ current_variant.price | money }}
             </span>
+            <hr class="hr--small">
 
-            <hr class="hr--small hidden">
+            
 
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">
             <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
             {% capture "form_classes" %}
-              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+              product-single__form
+              {% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
             {%- endcapture %}
 
-            {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
+            {% capture "form_id" %}AddToCartForm--{{ section.id }}
+            {%- endcapture %}
 
-            {% form 'product', product, class:form_classes, id:form_id %}
-              {% unless product.has_only_default_variant %}
-                {% for option in product.options_with_values %}
-                  <div class="radio-wrapper js product-form__item">
-                    <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
-                      for="ProductSelect-option-{{ forloop.index0 }}">
-                      {{ option.name | escape }}
-                    </label>
-                    {% if section.settings.product_selector == 'radio' %}
-                      <fieldset class="single-option-radio"
-                        name="{{ option.name | handleize }}"
-                        id="ProductSelect-option-{{ forloop.index0 }}">
-                        {% assign option_index = forloop.index %}
-                        {% for value in option.values %}
-                          {% assign variant_label_state = true %}
-                          {% if product.options.size == 1 %}
-                            {% unless product.variants[forloop.index0].available  %}
-                              {% assign variant_label_state = false %}
-                            {% endunless %}
-                          {% endif %}
-                          <input type="radio"
-                            {% if option.selected_value == value %} checked="checked"{% endif %}
-                            {% unless variant_label_state %} disabled="disabled"{% endunless %}
-                            value="{{ value | escape }}"
-                            data-index="option{{ option_index }}"
+            <div class="flexParent">
+              <div class="variantInput"> {% comment %} varInputStart {% endcomment %}
+
+                {% form 'product', product, class:form_classes, id:form_id %}
+                  {% unless product.has_only_default_variant %}
+                    {% for option in product.options_with_values %} 
+                    {% comment %} START OF VARIANT SELECTION {% endcomment %}
+                      <div style="text-align:center" class="radio-wrapper js product-form__item">
+                        <label class="single-option-radio__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
+                          for="ProductSelect-option-{{ forloop.index0 }}">
+                          {{ option.name | escape }}
+                        </label>
+                        {% if section.settings.product_selector == 'radio' %}
+                          <fieldset class="single-option-radio"
                             name="{{ option.name | handleize }}"
-                            class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
-                            id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
-                          <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
-                        {% endfor %}
-                      </fieldset>
-                    {% else %}
-                      <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                        {% for value in option.values %}
-                          <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
-                        {% endfor %}
-                      </select>
-                    {% endif %}
-                  </div>
-                {% endfor %}
-              {% endunless %}
+                            id="ProductSelect-option-{{ forloop.index0 }}">
+                            {% assign option_index = forloop.index %}
+                            {% for value in option.values %}
+                              {% assign variant_label_state = true %}
+                              {% if product.options.size == 1 %}
+                                {% unless product.variants[forloop.index0].available  %}
+                                  {% assign variant_label_state = false %}
+                                {% endunless %}
+                              {% endif %}
+                              <input type="radio"
+                                {% if option.selected_value == value %} checked="checked"{% endif %}
+                                {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                                value="{{ value | escape }}"
+                                data-index="option{{ option_index }}"
+                                name="{{ option.name | handleize }}"
+                                class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                                id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                              <label for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
+                            {% endfor %}
+                          </fieldset>
+                        {% else %}
+                          <select class="single-option-selector__radio single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                            {% for value in option.values %}
+                              <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value | escape }}</option>
+                            {% endfor %}
+                          </select>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endunless %}
 
-              <select name="id" id="ProductSelect" class="product-single__variants no-js">
-                {% for variant in product.variants %}
-                  {% if variant.available %}
-                    <option {% if variant == product.selected_or_first_available_variant %}
-                      selected="selected" {% endif %}
-                      data-sku="{{ variant.sku }}"
-                      value="{{ variant.id }}">
-                      {{ variant.title }} - {{ variant.price | money_with_currency }}
-                    </option>
-                  {% else %}
-                    <option disabled="disabled">
-                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                    </option>
-                  {% endif %}
-                {% endfor %}
-              </select>
+                  <select name="id" id="ProductSelect" class="product-single__variants no-js">
+                    {% for variant in product.variants %}
+                      {% if variant.available %}
+                        <option {% if variant == product.selected_or_first_available_variant %}
+                          selected="selected" {% endif %}
+                          data-sku="{{ variant.sku }}"
+                          value="{{ variant.id }}">
+                          {{ variant.title }} - {{ variant.price | money_with_currency }}
+                        </option>
+                      {% else %}
+                        <option disabled="disabled">
+                          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                        </option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+              </div> {% comment %} varInputEnd {% endcomment %}
 
-              {% if section.settings.quantity_enabled %}
-              <div class="product-single__quantity">
-                <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
-                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
-              </div>
+              {% comment %} ==not sure whats below START== {% endcomment %}
+
+            {% comment %}   {% if section.settings.product_quantity_enable == false %}
+                <style>
+                  .selector-wrapper select, .product-variants select {
+                    margin-bottom: 13px;
+                  }
+                </style>
               {% endif %}
 
+              {% if section.settings.quantity_enabled %}
+                <div class="product-single__quantity grid">
+                  <label for="Quantity"  class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+                </div>
+              {% endif %} {% endcomment %}
+
+              {% comment %} ==not sure whats above END== {% endcomment %}
+
+
+                <div class="quantInput"> {% comment %} child2 START {% endcomment %}
+                  <label for="quantity" class="quantity-selector quantity-selector-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                </div>
+
+                </div> {% comment %} child2 END {% endcomment %}
+                
+                <span class="quantityMsg"> Buy 2 or More & Get 20% off</span>
+
+        {% if section.settings.product_quantity_message %}
+          <div id="variantQuantity-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity < 10 and variant.inventory_quantity > 0 %} is-visible{% endif %}">
+              {% include 'svg-definitions' with 'stock-icon' %}
+                {% assign qty = variant.inventory_quantity %}
+                <span id="variantQuantity-{{ section.id }}__message">{{ 'products.product.only_left' | t: count: qty }}</span>
+          </div>
+        {% endif %}
+
+        {% if section.settings.product_incoming_message %}
+          <div id="variantIncoming-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity <= 0 and variant.incoming %} is-visible{% endif %}">
+            {% if variant.inventory_management and variant.inventory_quantity == 0 or variant.inventory_quantity < 0 and current_variant.incoming %}
+              {% include 'svg-definitions' with 'stock-icon' %}
+              {% if variant.available %}
+                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
+                <span id="variantIncoming-{{ section.id }}__message">{{ 'products.product.will_not_ship_until' | t: date: date  }}</span>
+              {% else %}
+                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
+                <span id="variantIncoming-{{ section.id }}__message">{{ 'products.product.will_be_in_stock_after' | t: date: date }}</span>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+          {% unless qb_loaded == 'true' %}
+          <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>{% assign qb_loaded = 'true' %}
+          {% endunless %}
+
+
+              <div id="w3-product-accessories" data-product-handle="{{ product.handle }}">
+                <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
+              </div>
+
+            
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn order-btn-icon btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
                   <span class="btn__text"> 
                     {% if current_variant.available %}
-                       	ORDER NOW & GET FREE SHIPPING <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/shipIcon.png">
+                       	ADD TO CART <span class="icon icon-cart"></span>
                     {% else %}
                       {{ 'products.product.sold_out' | t }}
                     {% endif %}
                   </span>
                 </button>
-                <span class="assurance">IN STOCK & SHIPPED SAME DAY IF ORDERED BEFORE 2PM PST</span>
+               {% comment %}  <span class="assurance">IN STOCK & SHIPPED SAME DAY IF ORDERED BEFORE 2PM PST</span> {% endcomment %}
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
@@ -783,6 +1093,16 @@ div#shopify-product-reviews h2 {
             {% endform %}
 
           </div>
+
+          <div class="prodIntroMob">
+            {% comment %}  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/diver_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>Designed for scuba divers, free divers, snorkelers and everyday aquatic fun enthusiasts.</p>
+            
+            
+          {% comment %}   <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/speedo_20x20_crop_center@2x.png" alt="diver icon" /> {% endcomment %}
+            <p>
+            <b>WHITESHARK MIX</b> electric propulsion system, equipped with twin propellers can glide you through the water in an exhilarating, easy, and fun way, on the surface or below, with top speeds of <b>5.56 km/h</b> and depths up to <b>131 feet</b>.</p>
+            </div>
 
           
           
@@ -792,6 +1112,9 @@ div#shopify-product-reviews h2 {
         </div>
       </div>
     </div>
+
+    
+
 	<div class="product-single__description rte" itemprop="description">
             {{ product.description }}
           </div>
@@ -866,7 +1189,7 @@ div#shopify-product-reviews h2 {
       margin-top: 15px;
       font-size:1rem!Important;
     }
-    .grid-item{
+    .grid__item{
     	padding-left:15px!important;
     }
     .payment-buttons button{
@@ -882,6 +1205,12 @@ div#shopify-product-reviews h2 {
     .charity h2 {
     	font-size: 1.6rem!Important;
     }
+
+    .contentBox h3 {
+      width:95%;
+      font-size: 1rem;
+    }
+
     .techDetails {
     	font-size: 1.6rem!Important;
     }
@@ -894,7 +1223,7 @@ div#shopify-product-reviews h2 {
       line-height:2.8rem!important;
     
     }
-    .compareBox .grid-item.large--six-twelfths {
+    .compareBox .grid__item.large--six-twelfths {
         padding-left: 0px!important;
     }
     .compareTable{
@@ -904,7 +1233,7 @@ div#shopify-product-reviews h2 {
         text-align: center!Important;
         padding: 10px!Important;
     }
-    .orderToday .grid-item {
+    .orderToday .grid__item {
       padding-left: 15px!important;
       padding-right: 15px!important;
     }
@@ -913,27 +1242,305 @@ div#shopify-product-reviews h2 {
       text-transform: uppercase;
       line-height: 1.2em;
     }
-    .grid.outstand .grid-item {
+    .grid.outstand .grid__item {
         padding-left: 0px!important;
     }
   }
 
-  @media (max-width:568px)
+
+  @media (max-width:568px) 
   {
+
+    h1.product-single__title {
+      font-size:1.6rem;
+      margin:0px;
+    }
+
+    .subTitleText {
+      font-size:0.78rem;
+      text-align:center;
+      letter-spacing:0;
+    }
+
+    .reviewTop {
+      font-size: 0.9rem;
+    }
+
+    .saleText {
+      font-size:0.9rem;
+      margin-bottom: 45px;
+    }
+
+    .saleText img {
+      display:none;
+    }
+
+    .prodIntro {
+      display:none;
+    }
+
+    .prodIntroMob {
+      display:block;
+      margin-top:30px;
+    }
+
+    .flexParent {
+      display:flex;
+      flex-direction:row;
+      margin-left:25px;
+    }
+
+    .quantInput {
+      padding-left:5px;
+    }
+
+    #featureImage1 {
+      display:none;
+    }
+
+    .contentBox p {
+      margin-top:13px;
+      margin-bottom: 10px;
+      padding-right:40px;
+    }
+
+    .testDesk {
+      display:none;
+    }
+
+    .testMob {
+      display:block;
+      margin:auto;
+    }
+
+    .facebookRev {
+      display:none;
+    }
+
+    .facebookRevMob {
+      display:block;
+      margin:auto;
+      padding:30px 5px;
+    }
+
+      
+    .grid.gurantee-benefit {
+      margin: 0px;  
+      color:white;
+      background: #273A72;
+      display: block;
+      box-shadow: 1000px 0px #273A72, -1000px 0px #273A72;
+    }
+
+    p.forceSubTitle {
+      font-size:1rem; 
+      margin: auto;
+      width: 100%; 
+      position:relative; 
+      color:black; 
+      text-align: center; 
+      margin-top: 10px;
+      padding-left:0px;
+      padding: 10px;
+    }
+
+    .charity {
+      margin: 20px 0px;
+    }
+
+     .grid.highlightBox h2 {
+      font-size: 1.7rem;
+      margin-bottom:25px;
+      padding-top:30px;
+    }
+
+    .sepjet2hl img{
+      display:none;
+    }
+
+    .specifications img.sepjet {
+      display:none;
+    }
+
+    .sepjet2 img{
+      display:none;
+    }
+
+    .sepjet2compare {
+      display:none;
+    }
+
+    .shadowVertical {
+      display:none;
+    }
+    
+    img.highlightImage {
+      display:none;
+    }
+
+    .hlMobTitle{
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+      width:90%;
+    }
+
+    .hlMobInfo {
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+      width:90%;
+    }
+
+    .hlMobInfo p {
+      padding:10px;
+    }
+
+    .testimonial h2 {
+      font-size: 1.7rem;
+    }
+
+    .orderToday h2 {
+      font-size: 1.2rem;
+    }
+    .orderToday h3 {
+      font-size: 0.9rem;
+    }
+
+    .grid.orderToday {
+      padding-top:20px;
+      padding-bottom: 20px;
+    }
+
+    .grid.specifications h2 {
+      font-size: 2.0rem;
+      padding-top: 0px;
+    }
+
+    .saving h4 {
+      padding-top: 30px;
+      font-size:0.9rem;
+    }
+
+    ul.techList {
+      font-size:0.7rem;
+      list-style:none;
+    }
+
+    ul.techList li span {
+      font-weight:700;
+    }
+
+    .specifications img {
+      max-width:100%;
+    }
+
+    .triple img {
+      max-width:100%;
+    }
+
+    .compareBox {
+      margin-top:30px;
+    }
+
+    .compareBox h4 {
+      font-size:1rem;
+    }
+
+    .ver {
+      font-size:1rem;
+    }
+
+    .compareBox h2 {
+      font-size:1rem;
+      font-weight:400;
+      -webkit-text-stroke: 0px;
+      letter-spacing:none;
+      margin:0px;
+    }
+
+    .wsSpan {
+      font-size: 1rem;
+    }
+
+    .compGridDesk {
+      display:none;
+    }
+
+    .compareBox img {
+      width: 100% ;
+    }
+
+    .compGridMob {
+      display:block;
+      margin:auto;
+    }
+
+    .compOldvNew img{
+      width: 50%;
+      margin-left:0%;
+    }
+
+
+    .faqItem {
+      padding: 5px 25px;
+    }
+
+    #featureImage1Mob {
+      display:block;
+    }
+
+    h2.howMuch {
+      font-size:1.1rem;
+      padding-bottom: 20px;
+    }
+
+    .savingList li {
+      font-size:0.8rem;
+      letter-spacing:0;
+    }
+
+    .saving h2 {
+      -webkit-text-stroke :1px;
+      font-weight:500;
+    }
+
+    .saving h3 {
+      font-size:1.0rem;
+    }
+
+    .inAction h4 {
+      padding-top:30px;
+      margin-bottom:20px;
+      font-size: 1rem;
+    }
+
+    .grid.faq h2 {
+    margin-top:40px;
+    margin-bottom:20px;
+    font-family: inherit;
+    font-weight: bold;
+    -webkit-text-stroke: 1px;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
     .topTitle{font-size:1.1rem!important;}
-    .techSpec .grid-item .techDetails {
+    .techSpec .grid__item .techDetails {
       font-size: 1.2rem!important;
       padding-top: 14px!important;
     }
     .techDetails {
-       width: calc(100% - 62px)!important;
+      width: calc(100% - 62px)!important;
     }
-    .compareTable table{max-width:100%!important;; overflow:hidden!important}
+    .compareTable table{max-width:100%!important;;                 overflow:hidden!important}
+    
     .compareTable tr td{padding:5px!important;}
-     .subTitle{
+    
+    .subTitle{
     	font-size:0.8rem!important;
-          text-align: center;
-    padding-left: 15px!important;;
+      text-align: center;
+      padding-left: 15px!important;;
     }
     .flashSale {
     	font-size: 1.3rem!important;
@@ -946,1060 +1553,9 @@ div#shopify-product-reviews h2 {
     }
   }
 </style>
-<div id="ProductSection" data-section-id="{{ section.id }}" data-section-type="product-template" data-zoom-toggle="zoom-in" data-zoom-enabled="{{ section.settings.product_image_zoom_enable }}" data-related-enabled="{{ section.settings.product_related_enable }}" data-social-sharing="{{ section.settings.social_sharing }}" data-show-compare-at-price="{{ section.settings.product_show_compare_at_price }}" data-stock="{{ section.settings.product_quantity_message }}" data-incoming-transfer="{{ section.settings.product_incoming_message }}" data-ajax-cart-method="{{ settings.ajax_cart_method }}">
-{% include 'breadcrumb' %}
-
-{% case section.settings.add_to_cart_button_size %}
-  {% when 'small' %}
-    {% assign btn_class = 'btn' %}
-  {% when 'medium' %}
-    {% assign btn_class = 'btn btn--wide' %}
-  {% when 'large' %}
-    {% assign btn_class = 'btn btn--full btn--large' %}
-{% endcase %}
-
-{% if section.settings.add_to_cart_button_size == 'large' %}
-  <style>
-    .selector-wrapper select, .product-variants select {
-      max-width: 100%;
-    }
-  </style>
-{% endif %}
-
-{% if section.settings.product_quantity_enable == false %}
-  <style>
-    .selector-wrapper select, .product-variants select {
-      margin-bottom: 13px;
-    }
-  </style>
-{% endif %}
-
-<div class="grid" itemscope itemtype="http://schema.org/Product">
-  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
-
-  <div class="grid-item large--one-full">
-    <div class=" text-center">
-      <h1 class="topTitle">{{ product.title }}</h1>
-      <div class="reviewTop">
-         
-            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-         
-        </div>
-      <div class="subTitle"><b>"It's Like a $300-an-Hour Inspector in Your Pocket"</b> - New Design: fits AR-15 barrels, at last!</div>
-      <div class="flashSale"><img src="https://cdn.shopify.com/s/files/1/1302/6949/files/sale.png?13817981488719035356"><span> FALL SALE:</span> SAVE 75-90% <img src="https://cdn.shopify.com/s/files/1/1302/6949/files/sale.png?13817981488719035356"></div>
-    </div>
-      <div class="grid-item large--six-twelfths text-center">
-        
-          <div class="product-photo-container" id="productPhotoContainer-{{ section.id }}">
-          <div id="slider" class="flexslider">
-            <ul class="slides">
-                  {% for image in product.images %}
-                 <li>
-                  
-                  {{ image | product_img_url: 'original' | img_tag }}
-                 </li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div id="carousel" class="flexslider">
-            <ul class="slides">
-                  {% for image in product.images %}
-                 <li>
-                  
-                  {{ image | product_img_url: 'original' | img_tag }}
-                 </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-        <script>
-    $(document).ready(function() {
-     
-  $('#carousel').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: false,
-    slideshow: false,
-    itemWidth: 100,
-    itemMargin: 4,
-    asNavFor: '#slider'
-  });
- 
-  $('#slider').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: false,
-    slideshow: false,
-    sync: "#carousel"
-  });
-   $('.flex-next').html("");
-});
-
-        </script>
-        
-        
-         
-       
-        
-      </div>
-    
-
-
-  <div class="grid-item large--six-twelfths text-center">
-    <div id="productIntro" class="deskOnly"></div>
-    <div id="w3-product-accessories" data-product-handle="{{ product.handle }}">
-          <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
-    </div>
-    <div id="productIntro" class="deskOnly"></div>
-    <h1 class="h2 hidden" itemprop="name">{{ product.title }}</h1>
-   <h5 class="short-page-subheader hidden" id="subheadnew"></h5>
-    {% if section.settings.product_vendor_enable %}
-      <p class="product-meta hidden" itemprop="brand">{{ product.vendor }}</p>
-    {% endif %}
-
-    <div itemprop="offers hidden" itemscope itemtype="http://schema.org/Offer">
-
-      {% assign variant = product.selected_or_first_available_variant %}
-
-      <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-      <meta itemprop="price" content="{{ variant.price | divided_by: 100.00 }}">
-
-      <ul class="inline-list product-meta hidden">
-        <li>
-          <span id="productPrice-{{ section.id }}" class="h1">
-            {% include 'price' with variant.price %}
-          </span>
-        </li>
-        {% if product.compare_at_price_max > product.price and section.settings.product_show_saved_amount %}
-        <li>
-          <span id="comparePrice-{{ section.id }}" class="sale-tag large">
-            {% assign compare_price = variant.compare_at_price %}
-            {% assign product_price = variant.price %}
-            {% include 'price-sale' %}
-          </span>
-        </li>
-        {% endif %}
-        {% if section.settings.product_reviews_enable %}
-          <li class="product-meta--review">
-            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-          </li>
-        {% endif %}
-      </ul>
-      <button type="button" onclick="getFive()" class="btn get-coupon">Click &amp; Get A Coupon!</button>
-      <p class="getFive"><strong>Save additional $5 !</strong> Add coupon <strong><em>ENDO5OFF</em></strong> in checkout</p>
-      <p class="getTen"><strong>Save additional $10 !</strong> Add coupon <strong><em>SAVE10ENDO</em></strong> in checkout</p>
-      <hr id="variantBreak" class="hr--clear hr--small">
-
-      <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
-      {% capture "form_class" -%}
-        addToCartForm{% if section.settings.enable_payment_button %} addToCartForm--payment-button{% endif %}
-      {%- endcapture %}
-
-      {%- capture "form_id" -%}addToCartForm-{{ section.id }}{%- endcapture -%}
-
-      {% form 'product', product, class:form_class, id:form_id %}
-        <select name="id" id="productSelect-{{ section.id }}" class="product-variants product-variants-{{ section.id }}">
-          {% for variant in product.variants %}
-          {% include 'bold-variant' with variant, hide_action: 'skip' %}
-
-            {% if variant.available %}
-
-              <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-
-            {% else %}
-              <option disabled="disabled">
-                {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-              </option>
-            {% endif %}
-          {% endfor %}
-        </select>
-
-        
-          <label for="quantity" class="quantity-selector quantity-selector-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
-      <span class="quantityMsg"> Buy 3 or More & Get 20% off</span>
-
-        {% if section.settings.product_quantity_message %}
-          <div id="variantQuantity-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity < 10 and variant.inventory_quantity > 0 %} is-visible{% endif %}">
-              {% include 'svg-definitions' with 'stock-icon' %}
-                {% assign qty = variant.inventory_quantity %}
-                <span id="variantQuantity-{{ section.id }}__message">{{ 'products.product.only_left' | t: count: qty }}</span>
-          </div>
-        {% endif %}
-
-        {% if section.settings.product_incoming_message %}
-          <div id="variantIncoming-{{ section.id }}" class="variant-quantity {% if variant.inventory_management and variant.inventory_quantity <= 0 and variant.incoming %} is-visible{% endif %}">
-            {% if variant.inventory_management and variant.inventory_quantity == 0 or variant.inventory_quantity < 0 and current_variant.incoming %}
-              {% include 'svg-definitions' with 'stock-icon' %}
-              {% if variant.available %}
-                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
-                <span id="variantIncoming-{{ section.id }}__message">{{ 'products.product.will_not_ship_until' | t: date: date  }}</span>
-              {% else %}
-                {% assign date = variant.next_incoming_date | date: "month_day_year" %}
-                <span id="variantIncoming-{{ section.id }}__message">{{ 'products.product.will_be_in_stock_after' | t: date: date }}</span>
-              {% endif %}
-            {% endif %}
-          </div>
-        {% endif %}
-          {% unless qb_loaded == 'true' %}
-          <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>{% assign qb_loaded = 'true' %}
-          {% endunless %}
-        <div class="payment-buttons payment-buttons--{{ section.settings.add_to_cart_button_size }}">
-          <button type="submit" name="add" id="addToCart-{{ section.id }}" class="{{ btn_class }} btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}">
-                                             
-            <span id="addToCartText-{{ section.id }}">ORDER NOW & GET FREE SHIPPING</span> <span class="icon icon-cart"></span> 
-          </button>
-          <div class="riskGurantee"><img src="https://cdn.shopify.com/s/files/1/1302/6949/files/gurantee.png?11455649253307302323">100% NO RISK - MONEY BACK GUARANTEE </div>
-        
-          {% if section.settings.enable_payment_button %}
-            {{ form | payment_button }}
-          {% endif %}
-        </div>
-      <div>
-    <img src="{{ 'checkout_icon.png' | asset_url }}" class="bnw-icons hidden" style="margin:-5px auto 25px" />
-      </div>
-      
-      
-      {% endform %}
-       <div id="productIntromob" class="mobileOnly"></div>
-
-      <hr class="hidden {% if section.settings.enable_payment_button %}product-template-hr{% endif %} nomargin">
-      <div class="whatIncluded hidden">
-        <h2>What's Included</h2>
-        <ul>
-          <li>1 <span>x</span> USB Endosnake</li>
-          <li>1 <span>x</span> Small Hook</li>
-          <li>1 <span>x</span> CD Driver</li>
-          <li>1 <span>x</span> Micro To USB Line</li>
-          <li>1 <span>x</span> User Manual</li>
-          <li>1 <span>x</span> Side Audition</li>
-        </ul>
-      </div>
-      <div class="guranteeBox">
-        	<img src="//cdn.shopify.com/s/files/1/1302/6949/t/48/assets/checkout_icon.png?1875957558160372405">
-      </div>
-    </div>
-
-   
-
-  </div>
-</div>
-</div>
-  <script>
-    $('.get-coupon').on('click',function(){
-    
-ga('send', 'event', 'Click', 'GetCoupon');
-});
-  </script>
-   <div class="product-description rte" itemprop="description">
-      {{ product.description }}
-    </div>
-{% comment %}
-    {% if section.settings.social_sharing_products %}
-      {% include 'social-sharing' %}
-    {% endif %}
-{% endcomment %}
-{% if section.settings.related_products_enable %}
-  {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
-  {% include 'related-products' %}
-{% endif %}
-<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-{% if section.settings.product_reviews_enable %}
-  <hr>
-  <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
-{% endif %}
-
-{% unless product == empty %}
-  <script type="application/json" id="ProductJson-{{ section.id }}">
-    {% include 'bold-product', output: 'json' %}
-  </script>
-  {% if section.settings.product_quantity_message or section.settings.product_incoming_message %}
-    <script type="application/json" id="VariantJson-{{ section.id }}">
-      [
-        {% for variant in product.variants %}
-        {% include 'bold-variant' with variant, hide_action: 'skip' %}
-
-          {% capture variant_inventory %}
-            {%- if section.settings.product_incoming_message -%}
-              ,
-              "incoming": {% if variant.incoming == 'null' or variant.next_incoming_date == null %}false{% else %}{{ variant.incoming | default: false | json }}{% endif %},
-              "inventory_policy": {{ variant.inventory_policy | json }},
-              "next_incoming_date": {{ variant.next_incoming_date | date: format: 'month_day_year' | json }}
-            {%- endif -%}
-            {%- if section.settings.product_quantity_message -%}
-              ,
-              "inventory_quantity": {{ variant.inventory_quantity | json }}
-            {%- endif -%}
-          {% endcapture %}
-          {
-            {{ variant_inventory | remove_first: ',' | strip }}
-          }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    </script>
-  {% endif %}
-{% endunless %}
-</div>
-<script>
-    //subheadline
-  if (document.getElementById("forsubhead")) {
-  var contentSub = document.getElementById('forsubhead');
-    var captionSubNew = document.getElementById('subheadnew');     
- contentSub.style.display = "none";
-    captionSubNew.innerHTML = contentSub.innerHTML;
-  };
-</script> 
-<script>
-  function getFive() {
-    $('.get-coupon').hide();
-     $('.getFive').show();
-  }
-  function getTen() {
-    $('.get-coupon').hide();
-     $('.getTen').show();
-  }
-</script>
-<script>
-    $(document).ready(function() {
-                      var targetOffset = $(".product-description").offset().top;
-                    var $w = $(window).scroll(function(){
-    if ( $w.scrollTop() > targetOffset ) {   
-      $('#addToCart-product-template').addClass('button-fixed-top');
- } else {
-       $('#addToCart-product-template').removeClass('button-fixed-top');
-    }
-});
-      
-    });
-   $('.btn--add-to-cart').on('click',function(){
-     ga('send', 'event', 'Click', 'Add To Cart');
-});
-</script>
-
-<style type="text/css">
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
-  body, h1, h2, h3, h4, h5, h6, p, span, div, li{
-  font-family: 'Lato', sans-serif!important;
-}
-  #productIntro p.italic {
-    font-style:italic;
-	}
-  #productIntro p {
-    text-align: left;
-}
-  .topTitle{
-  	margin-bottom:5px;
-  	font-size:1.6rem;
-  	font-family: 'Lato', sans-serif;
-    margin-bottom: 5px;
-    font-size: 1.7rem;
-    font-family: 'Lato', sans-serif!important;
-    font-weight: bolder;
-    text-shadow: 0 0 4px #949494;
-  }
-.subTitle b {
-   font-weight: 600;
-}
-.subTitle {
-  font-size: 1rem;
-  text-transform:uppercase;
-   
-}
-.flashSale img {
-    width: 42px;
-    vertical-align: top;
-}
-.flashSale {
-	font-size:1.5rem;
-	color:#2d67ad;
-    font-weight:bold;
-  	margin-bottom:10px;
-}
-.flashSale span {
-  color: #182e49;
-}
-div#productIntro {
-  
-    text-align: left;
-    font-size: 1rem;
-    color: #222;
-}
-.payment-buttons button {
-    background-color: #e34a00;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding: 8px 26px;
-    border-radius: 6px;
-    border: 3px solid #f38445;
-  transition: all 0.3s;
-}
-.btn--add-to-cart:hover, button[type=submit]:hover {
-    background-color: #f48e4f!important;
-}
-  .riskGurantee{
-  	margin-top: 10px;
-    font-size: 14px;
-    color: #484848;
-    letter-spacing: 0.5px;
-  }
-  .riskGurantee img{
-    vertical-align: middle;
-    width: 20px;
-    margin-right: 5px;
-  }
-  #addToCartForm-{margin:0px!important;}
-.hidden{display:none!important;}
-  .nomargin{margin:0px!important;}
-.whatIncluded ul {
-    columns: 3;
-    text-align: left;
-}
-.whatIncluded h2 {
-    text-align: left;
-}
-.whatIncluded ul {
-    font-size: 0.9rem;
-}
-.whatIncluded li {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-.whatIncluded li span {
-    text-transform: lowercase!important;
-    font-weight: 600;
-}
-.grid.blackBox {
-    background: #363636;
-    box-shadow: 1000px 0px #363636, -1000px 0px #363636;
-    color: white;
-    padding: 15px 0px 0px 0px;
-}
-.grid.blackBox h3{
-  color:white;
-  font-size: 1.3rem;
-  letter-spacing: 0.8px;
-  margin-bottom:5px;
-  margin-top: 0px;
-}
-.grid.blackBox p{  
-      font-size: 16px;
-  }
-img.moneyBack {
-    float: left;
-    height: 90px;
-  margin-right:15px;
-}
-.testimonial h3 {
-    font-size: 1rem!important;
-}
-.testimonial p {
-    font-size: 14px!important;
-}
-.charity h4 {
-    font-weight: 100;
-    font-size: 2rem;
-}
-.charity h2 {
-    font-size: 2.2rem;
-    font-weight: bolder;
-    text-shadow: -1px 2px 3px #ccc;
-}
-.grid.highlights {
-    background: #f6f6f6;
-    box-shadow: 1000px 0px #f6f6f6, -1000px 0px #f6f6f6;
-    padding: 50px 0px;
-}
-.highlights img {
-    display: block;
-    max-width: 80%;
-    margin: auto;
-}
-.highlights h2{
-    font-weight: 900;
-    font-size: 2.3rem;
-    margin-top: 0px!important;
-    line-height: 1rem;
-}
-.highlights p {
-    font-size: 1rem;
-    line-height: 1.3rem;
-    color: #222;
-}
-.highlights h4 {
-    font-weight: 400;
-    font-size: 1.2rem;
-}
-  
-  ul.highlightList{
-  	margin-top:50px;
-    display:block;
-    margin-left: 0px;
-  }  
-ul.highlightList li {
-    display: inline-block;
-    width: 24%;
-    background: #1d2467;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-ul.highlightList li span img {
-    border-radius: 50%;
-}
-.highlightList span {
-    display: block;
-    width: 45px;
-    background: white;
-    height: 45px;
-    margin: auto;
-    position: relative;
-    top: -20px;
-    border-radius: 50%;
-    border: 2px solid #1d2467;
-}
-ul.highlightList li {
-    display: inline-block;
-    width: 24%;
-    background: #1d2467;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    line-height: 1em;
-    min-height:105px;
-    vertical-align: middle;
-}
-ul.highlightList li span  {
-    transition: all 0.3s;
-}
-
-ul.highlightList li span img {
-    border-radius: 50%;
-    padding: 1px!important;
-    margin-top: 3px!important;
-}
-ul.highlightList li:hover span  {
-    transform: scale(1.2);
-    opacity: 1;
-}  
-ul.techList li span {
-    font-weight: bold;
-    color: #315e95;
-}
-
-ul.techList li {
-    border-bottom: solid 1px #dadada;
-}
-ul.techList {
-    list-style: none;
-    margin: 0px;
-    font-size: 16px;
-}
-.techSpec h3 {
-    font-size: 1.5rem;
-}
-.highlights h3 {
-    font-size: 1.4rem;
-    color: #d3383a;
-}
-ul.specList li {
-    width: 49%;
-    display: inline-block;
-  margin-bottom:10px;
-}
-ul.specList {
-    list-style: none;
-    margin-left: 0px;
-}
-.specList img {
-    float: left;
-  margin-top:10px;
-}
-.techDetails span {
-    font-weight: 100;
-    display: block;
-    line-height: 0.5rem;
-}
-
-.techDetails {
-    font-size: 2rem;
-    font-weight: 900;
-}
-.techDetails {
-    font-size: 2rem;
-    font-weight: 900;
-    width: calc(100% - 65px);
-    float: right;
-}
-.grid.techSpec {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-.ip67 .techDetails {
-    font-size: 2rem;
-    font-weight: 900;
-    width: calc(100% - 80px);
-    float: right;
-}
-.ip67 span {
-    display:inline-block;
-}
-li.ip67 .techDetails {
-    line-height: 2rem;
-    margin-top: 1rem;
-}
-li.ip67 {
-    padding-left: 15%;
-}
-.grid.orderToday {
-    background: #182e49;
-    box-shadow: 1000px 0px #182e49, -1000px 0px #182e49;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.grid.orderToday h2, .grid.orderToday h3 {
-    color: white;
-}
-.orderToday h2 {
-    font-size: 1.6rem;
-    font-weight: 900;
-  	margin-bottom:0px!important;
-}
-.orderToday h3 {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-top: 0px!important;
-    text-transform: unset;
-}
-a.orderBtnCTA {
-    background: #e65300;
-    border: 2px solid #f48e4f;
-    color: #ffffff;
-    padding: 16px 20px;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
-    display: block;
-      text-align: center;
-}
-.outstand .iconBox img {
-    padding: 10px;
-}
-.iconBox img {
-    padding: 10px;
-}
-
-.outstand .iconBox {
-    display: block;
-    background: #1f2772;
-    border-radius: 50%;
-    padding: 4px;
-    margin: auto;
-    width: 71px;
-  height:71px;
-}
-.iconBox {
-    display: block;
-    background: #1f2772;
-    border-radius: 50%;
-    padding: 4px;
-    margin: auto;
-    width: 71px;
-  height:71px;
-}
-.outstand h3 {
-    text-align: center;
-    font-size: 1.3rem;
-    color: #193353;
-}
-.outstand p.text {
-    font-size: 1.1rem;
-    text-align: center;
-    color: #444;
-    margin-top: 25px;
-}
-.highlighted h3 {
-    margin-bottom: 0px;
-    line-height: 1rem;
-}
-.h1box, .h2box {
-    padding-bottom: 10px;
-}
-
-.highlighted h3 {
-    margin-bottom: 0px;
-    line-height: 1rem;
-    font-size: 1.1rem;
-    color: #1f2772;
-}
-.highlighted h3 img {
-    margin-right: 5px;
-    vertical-align: text-top;
-}
-.outstand h2 {
-    font-size: 1.9rem;
-    line-height: 2.5rem;
-    color: #222;
-}
-  .outstand h2.redText{
-	color:#e00000;
-    font-size: 3rem;
-    font-weight: 700;
-  }
-.outstand h4 {
-    font-size: 1.5rem;
-}
-span.redText {
-    color: #e00000;
-    font-weight: bold;
-}
-.totalTxt {
-    font-size: 1.3rem;
-}
-  
-.savingList p {
-    font-size: 1rem;
-}
-h1.greenPrice {
-    color: #0dad0d;
-    font-size: 3rem;
-    font-weight: 900;
-    margin: 0px;
-}
-.outstand h5 {
-    font-size: 1.1rem;
-}
-hr.blueLine {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-color: #00adff;
-}
-.endosnakeCompare {
-    border: 1px solid #9c9c9c;
-    padding: 10px;
-    background: #e4e4e4;
-    border-radius: 10px;
-    border-top-right-radius: 0px;
-    box-shadow: 0px 3px 4px #ccc;
-    border-bottom-right-radius: 0px;
-}
-.otherCompare {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    min-height: 320px;
-    background: #f7f7f7;
-    padding: 10px;
-  margin-top:10px;
-}
-.endosnakeCompare ul, .otherCompare ul {
-    list-style: none!important;
-    margin: 10px;
-}
-.endosnakeCompare li span, .otherCompare li span {
-    font-size: 0.8rem;
-    display: block;
-    font-weight: 400;
-  
-}
-
-.endosnakeCompare li, .otherCompare li {
-    font-weight: bold;
-    border-bottom: 1px dashed #9a9a9a;
-    font-size: 1.1rem;
-}  
-
-.endosnakeCompare li:before {
-    content: ' ';
-    height: 20px;
-    width: 20px;
-    display: inline-block;
-    background: url(https://cdn.shopify.com/s/files/1/1302/6949/files/checked.png);
-    background-size: 100% 100%;
-    margin-right: 4px;
-    margin-top: 7px;
-    vertical-align: text-bottom;
-}
-.otherCompare li:before {
-    display: inline-block;
-    content: 'x';
-    background: red;
-    height: 20px;
-    width: 20px;
-    text-align: center;
-    line-height: 1em;
-    color: white;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-.grid.compareBox {
-    padding: 75px 0px;
-}
-.grid.charity {
-    margin-bottom: 0px;
-}
-.compareTable {
-    background: #0f2e4b;
-    color: white;
-    border-radius: 5px;
-  padding:30px;
-}
-  .compareTable td{
-  border-color:transparent;
-  }
-  .compareTable {
-  text-align:center;
-  }
-.compareTable h2 {
-    font-size: 1.5rem;
-    text-align: center;
-    color: white;
-    font-weight: 900;
-}
-.compareTable td .tdTitle {
-    font-size: 1.1rem;
-    display: block;
-    font-weight: 600;
-}
-.compareTable td span.subdesc {
-    font-size: 0.7rem;
-    line-height: 1em;
-    display: block;
-}
-.compareTable tr td{
-    border-bottom:1px solid #ccc;
-}
-.compareTable tr:nth-child(1) td, .compareTable tr:last-child td{
-    border-bottom:1px solid transparent;
-}
-.compareTable .tickBox {
-    height: 30px;
-    width: 30px;
-    display: block;
-    margin: auto;
-    background: url(https://cdn.shopify.com/s/files/1/1302/6949/files/checked.png);
-    background-size: 100%;
-}
-.crossBox {
-    text-align: center;
-    font-weight: 900;
-    font-size: 1.1rem;
-    border: 2px solid white;
-    display: block;
-    height: 30px;
-    width: 30px;
-    line-height: 1.7rem;
-    border-radius: 50%;
-}
-.compareTable tr:first-child {
-    font-size: 0.9rem;
-    text-align: center;
-    font-weight: 600;
-}
-.compareTable tr td:nth-child(2) {
-    background: #20426c;
-}
-.grid.useCase {
-    background: #f5f5f5;
-    box-shadow: 1000px 0px #f5f5f5, -1000px 0px #f5f5f5;
-    padding: 40px 0px;
-}
-  
-.vehicle .grid-item h3 {
-    text-align: center;
-}
-  .useCase{
-  margin-bottom:0px!important;;
-}
-.useCase h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-.useCase h2 {
-    font-size: 1.4rem;
-}
-.faq h2 {
-    font-size: 2rem;
-    text-align: center;
-}
-.grid.faq {
-    font-size: 1.1rem;
-}
-.grid.faq {
-    border-bottom:1px solid #ccc;
-}
-.testiBox h3 {
-    font-size: 2.3rem;
-    margin: 0px;
-    line-height: 2.3rem;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-}
-.testiBox {
-    margin-top: 75px;
-}
-
-.featureImg img {
-    max-width: 100%;
-}
-  .addToCartForm select{
-  display:inline-block!important;
-    width:70%;
-    margin-right:4%;
-    margin-bottom:0px!important
-  }
-  .js-qty{
-  margin-bottom:0px!important;
-  }
-  .site-header{
-  padding:0px!important;
-  margin-bottom:-20px;
-  }
-@media screen and (min-width:767px)
-{
-  .header-logo {
-      margin: 5px 0;
-  }
-  .main-content{
-  padding-top:15px!Important;
-  }
-  h1.greenPrice {
-    color: #0dad0d;
-    font-size: 2.7rem;
-    font-weight: 900;
-    margin: 0px;
-  }
-}
-
-header .grid--full {
-    line-height: 0;
-}
-.accessory-price {
-    width: 10%;
-    display: inline-block;
-    padding-left: 10px;
-    font-size: 1.2rem;
-    vertical-align: top;
-    font-weight: bold;
-}
-.accessories-title {
-    font-size: 1.1rem;
-    line-height: 1em;
-  pointer-events: none!Important;
-}
-.accessories-title-wrap {
-    width: 77%;
-    display: inline-block;
-}
-.accessories-item{
-  	transition:all 0.3s;
-}
-.accessories-item:hover {
-    padding-left: 15px;
-}
-.accessories-item:hover::before {
-    content: 'ON SALE!';
-    background: #08e008;
-    color: white;
-    font-weight: bold;
-    transform: rotate(270deg);
-    position: absolute;
-    margin-left: -48px;
-    margin-top: 14px;
-    width: 73px;
-    text-align: center;
-}
-.accessories-title-wrap {
-    font-size:1.1rem!important;
-    color: #3272b6;
-  pointer-events: none!Important;
-}
-  
-  input[type="checkbox"] {
-    position: relative;
-    width: 500px!important;
-    height: 51px!important;
-    max-width: 487px!important;
-    z-index: 999999999!important;
-    opacity: 0;
-}
-  .accessories-img-wrapper img {
-    position: relative;
-    top: -62px;
-    left: 10px;
-}
-input[type="checkbox"]+ div::before {
-    position: absolute;
-    width: 35px;
-    background: #bbbbbb;
-    display: block;
-    content: '+';
-    height: 35px;
-    border-radius: 50%;
-    z-index: 99;
-    color: white;
-    line-height: 35px;
-    font-size: 1.7rem;
-    top: -87px;
-    opacity: 0.9;
-    font-weight: 900;
-}
-
-input[type="checkbox"]:checked + div::before {
-    position: absolute;
-    width: 35px;
-    background: #00af36;
-    display: block;
-    content: '✔';
-    height: 35px;
-    border-radius: 50%;
-    z-index: 99;
-    color: white;
-    line-height: 35px;
-    font-size: 1.2rem;
-    top: -87px;
-}
-span.quantityMsg {
-    margin-bottom: 5px;
-    font-size: 15px;
-}
-.accessories-left.thumb {
-    width: 88px;
-    max-height: 75px;
-}
-.accessories-item select {
-    margin-bottom: 10px;
-    width: 75%;
-    float: left;
-}
-div#w3-product-accessories {
-    border: 2px dashed #bbb;
-    padding: 5px;
-    background: #f7fbff;
-}
-div#accessories-container-heading h3 {
-    font-size: 1.3rem;
-    color: #0f2e4b;
-}
-select#productSelect-, .js-qty input, .js--add, .js--minus {
-    font-size: 1.1rem;
-    border-color: #0f2e4b;
-}
-</style>
-
-
 </div>
 {% unless product.empty == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
     {{ product | json }}
   </script>
 {% endunless %}
-
-
