@@ -25,6 +25,17 @@ h1.product-single__title span {
   color: #e4ae0c;
 }
 
+.payment-buttons button{
+  background-color:rgb(0,166,0);
+  color:#fff;
+  font-size:1.3rem;
+  font-weight:700;
+  padding:14px 26px;
+  border-radius:6px;
+  border:3px solid rgb(0,127,0);
+  transition:all .3s
+  }
+
 .prodIntroMob {
       display:none;
     }
@@ -86,15 +97,21 @@ h1.product-single__title span {
     background: #4CAF50!important;
     border: 2px solid #000;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    padding-left: 5px!important;
-    padding-right: 5px!important;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
     outline: none;
 }
 .order-btn-icon span{
-	vertical-align:bottom; 
+	  vertical-align:center; 
 }
+
+.order-btn-icon span span{
+	  font-size: 1.8rem; 
+    padding:0;
+}
+
 span.assurance {
     font-size: 13px;
     padding-top: 10px;
@@ -1014,9 +1031,9 @@ div#shopify-product-reviews h2 {
                   </select>
               </div> {% comment %} varInputEnd {% endcomment %}
 
-              {% comment %} ==not sure whats below START== {% endcomment %}
+              {% comment %} ==second add accessories START== {% endcomment %}
 
-            {% comment %}   {% if section.settings.product_quantity_enable == false %}
+              {% if section.settings.product_quantity_enable == false %}
                 <style>
                   .selector-wrapper select, .product-variants select {
                     margin-bottom: 13px;
@@ -1029,9 +1046,9 @@ div#shopify-product-reviews h2 {
                   <label for="Quantity"  class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
                   <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
                 </div>
-              {% endif %} {% endcomment %}
+              {% endif %}
 
-              {% comment %} ==not sure whats above END== {% endcomment %}
+              {% comment %} ==second add accessories END== {% endcomment %}
 
 
                 <div class="quantInput"> {% comment %} child2 START {% endcomment %}
@@ -1074,9 +1091,10 @@ div#shopify-product-reviews h2 {
                 <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
               </div>
 
-            
+            <div class="payment-button">
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn order-btn-icon btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+  
                   <span class="btn__text"> 
                     {% if current_variant.available %}
                        	ADD TO CART <span class="icon icon-cart"></span>
@@ -1091,7 +1109,7 @@ div#shopify-product-reviews h2 {
                 {% endif %}
               </div>
             {% endform %}
-
+            </div>
           </div>
 
           <div class="prodIntroMob">
