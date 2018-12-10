@@ -2182,7 +2182,7 @@ $shareCountBg: $colorBody;
   .hero__image {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    {% comment %} object-fit: cover; {% endcomment %}
     // Used for the IE lazysizes object-fit polyfill
     font-family: "object-fit: cover";
 
@@ -2251,6 +2251,7 @@ $shareCountBg: $colorBody;
     margin-bottom: 20px;
     line-height: 1.25;
     letter-spacing: 0;
+    font-size:2rem;
   }
 
   .hero__subtitle {
@@ -2279,7 +2280,8 @@ $shareCountBg: $colorBody;
 
   @include at-query($min, $postSmall) {
     .hero__title {
-      font-size: em(60px);
+      font-size: em(20px);
+
     }
 
     .hero__subtitle {
@@ -4216,3 +4218,14 @@ button.mfp-arrow {
 #whiteshark-mix .product-single__meta.scroll-to-fixed-fixed+div {
     max-height: 00px!important;
 }
+
+.hero--full-height {
+  
+    max-height: 400px;
+
+}
+
+
+  .hero__title {
+    font-size: 2rem;
+  }

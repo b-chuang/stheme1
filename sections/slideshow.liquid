@@ -118,15 +118,16 @@
             <div class="hero__text-wrap slideshow__overlay">
               <div class="hero__text-align">
                 <div class="hero__text-content">
-                  {% unless block.settings.slide_subheading == blank %}
-                    <p class="hero__subtitle">
-                      {{ block.settings.slide_subheading | escape }}
-                    </p>
-                  {% endunless %}
+                  
                   {% unless block.settings.slide_heading == blank %}
                     <h2 class="h1 hero__title">
                       {{ block.settings.slide_heading | escape }}
                     </h2>
+                  {% endunless %}
+                  {% unless block.settings.slide_subheading == blank %}
+                    <p class="hero__subtitle">
+                      {{ block.settings.slide_subheading | escape }}
+                    </p>
                   {% endunless %}
                   {% unless block.settings.slide_cta == blank %}
                     <a href="{{ block.settings.slide_link }}" style="color: {{ section.settings.slide_button_label_color }}; background-color: {{ section.settings.slide_button_background_color }}" class="btn hero__cta">
