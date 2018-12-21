@@ -85,21 +85,22 @@ h1.product-single__title span {
 }
 
 .order-btn-icon {
-    background: #4CAF50!important;
-    border: 2px solid #000;
+    background: #4AA22E!important;
+    border: 2px solid #377C21;
     border-radius: 10px;
     font-size: 1.3rem;
     font-weight: bold;
-    padding-left: 15px!important;
-    padding-right: 15px!important;
+    font-family: "Roboto", sans-serif;
+    padding-left: 70px!important;
+    padding-right: 70px!important;
     outline: none;
 }
 .order-btn-icon span{
 	  vertical-align:center; 
 }
 
-.order-btn-icon span span{
-	  font-size: 1.8rem; 
+.order-btn-icon span {
+	  font-size: 1.4rem; 
     padding:0;
 }
 
@@ -715,10 +716,10 @@ div#shopify-product-reviews h2 {
             <i class="spr-icon spr-icon-star"></i>
             <i class="spr-icon spr-icon-star"></i>
           </span>
-          <span class="spr-badge-caption">{% comment %} review number here {% endcomment %}</span>
+          <span class="spr-badge-caption">3 Reviews</span>
       </div>
       
-      <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>Fall Sale: </span> Save $50 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div>
+      <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>End of Year Sale: </span> Save $100 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div>
       
       <div class="grid__item large--six-twelfths medium--twelfths-twelfths text-center">
 
@@ -1101,10 +1102,11 @@ div#shopify-product-reviews h2 {
           <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>{% assign qb_loaded = 'true' %}
           {% endunless %}
 
-
+            
               <div id="w3-product-accessories" data-product-handle="{{ product.handle }}">
                 <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
               </div>
+            
 
             
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
@@ -1336,6 +1338,12 @@ div#shopify-product-reviews h2 {
     .quantInput {
       padding-left:5px;
     }
+
+    .order-btn-icon {
+      padding-left: 50px!important;
+      padding-right: 50px!important;
+    }
+
 
     #featureImage1 {
       display:none;
