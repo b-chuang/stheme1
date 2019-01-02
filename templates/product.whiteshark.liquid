@@ -712,7 +712,7 @@ div#shopify-product-reviews h2 {
           <span class="spr-badge-caption">3 Reviews</span>
       </div>
       
-      <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>End of Year Sale: </span> Save $100 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div>
+      {% comment %} <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>End of Year Sale: </span> Save $100 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div> {% endcomment %}
       
       <div class="grid__item large--six-twelfths medium--twelfths-twelfths text-center">
 
@@ -1097,6 +1097,7 @@ div#shopify-product-reviews h2 {
             <div id="w3-money-format" style="display:none;">{{ shop.money_format }}</div>
           </div>
 
+
             <div class="payment-button">
               <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
                 <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="btn order-btn-icon btn--add-to-cart{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
@@ -1284,6 +1285,7 @@ div#shopify-product-reviews h2 {
       font-size:0.78rem;
       text-align:center;
       letter-spacing:0;
+      margin-bottom:15px;
     }
 
     .reviewTop {
@@ -1349,6 +1351,7 @@ div#shopify-product-reviews h2 {
       display:block;
       margin:auto;
       padding:30px 5px;
+      margin-left:7px;
     }
 
     .order-btn-icon {
