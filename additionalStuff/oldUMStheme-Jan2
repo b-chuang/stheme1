@@ -120,8 +120,8 @@ span.assurance {
 }
 select#SingleOptionSelector-0 {
     border-color: #1555a0;
-    border-radius: 0px;
-    padding: 7px 40px 7px 25px;
+    border-radius: 7px;
+    padding: 4px 40px 4px 25px;
     font-size: 16px;
     font-style: normal;
 }
@@ -132,12 +132,7 @@ div#productIntro {
     font-size: 14px;
     text-align: left;
 }
-.js-qty__adjust--minus, .js-qty__adjust--plus {
-    border-color: #0f53a2;
-}
-.js-qty input#quantity {
-    border-color: #0f53a2;
-}
+
 .accessories-img-wrapper {
    font-size: 0px;
 }
@@ -686,41 +681,6 @@ div#shopify-product-reviews h2 {
     font-weight: bold;
     font-size: 1rem;
     margin-bottom: 9px;
-}
-.accessories-img-wrapper {
-   font-size: 0px!important;
-}
-h1.product-single__title {
-    margin-bottom: 0px;
-}
-.reviewTop {
-    margin-bottom: 5px;
-}
-.hr--small {
-    margin: 10px auto;
-}
-span#ProductPrice {
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 1.5rem;
-    letter-spacing: 0px;
-}
-@media screen and (min-width:961px)
-{
-.accessories-title-wrap,.accessory-price {
-    width: 75%;
-    display: inline-block;
-    float: left;
-}
-input.accessoryQuantity {
-    width: 50px;
-    float: right;
-    position: absolute;
-}
-input.accessoryQuantity {
-    border: 1px solid #b1b1b1;
-    text-align: center;
-}
 }
 </style>
 <script type="text/javascript">
