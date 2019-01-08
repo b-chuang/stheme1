@@ -754,12 +754,12 @@ input.accessoryQuantity {
             <i class="spr-icon spr-icon-star"></i>
             <i class="spr-icon spr-icon-star"></i>
           </span>
-          <span class="spr-badge-caption">3 Reviews</span>
+          <span class="spr-badge-caption">4 Reviews</span>
       </div>
       
       {% comment %} <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>End of Year Sale: </span> Save $100 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div> {% endcomment %}
       
-      <div class="grid__item large--six-twelfths medium--twelfths-twelfths text-center">
+      <div class="grid__item large--six-twelfths medium--twelfths-twelfths text-center" id="prodMainImg">
 
         {% if section.settings.image_layout == "stacked" %}
           {% comment %}
@@ -848,6 +848,10 @@ input.accessoryQuantity {
                 </div>
               {% endunless %}
             {% endfor %}
+
+          
+
+
 
           </div>
 
@@ -1330,11 +1334,21 @@ input.accessoryQuantity {
       font-size:0.78rem;
       text-align:center;
       letter-spacing:0;
-      margin-bottom:15px;
+      margin-bottom:12px;
+      position:absolute;
+      top:100px;
+      left:20px;
+    }
+
+    #prodMainImg {
+      margin-top:60px;
     }
 
     .reviewTop {
       font-size: 0.9rem;
+      position:absolute;
+      top:50px;
+      left:110px;
     }
 
     .saleText {
