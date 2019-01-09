@@ -158,6 +158,8 @@ div#productIntro {
 }
 .radio-wrapper .single-option-radio__label{
   	margin-bottom:0px;
+    position:absolute;
+    margin-left:50px;
 }
 .hidden{display:none!important;}
   
@@ -1064,9 +1066,9 @@ input.accessoryQuantity {
                             {% endfor %}
                           </select>
                         {% endif %}
-                      </div>
                     {% endfor %}
                   {% endunless %}
+                    
 
                   <select name="id" id="ProductSelect" class="product-single__variants no-js">
                     {% for variant in product.variants %}
@@ -1084,9 +1086,10 @@ input.accessoryQuantity {
                       {% endif %}
                     {% endfor %}
                   </select>
-              </div> {% comment %} varInputEnd {% endcomment %}
 
-              {% comment %} ==second add accessories START== {% endcomment %}
+                  
+               {% comment %}</div> varInputEnd {% endcomment %}
+              {% comment %} </div> ==second add accessories START== {% endcomment %}
 
               {% if section.settings.product_quantity_enable == false %}
                 <style>
@@ -1163,8 +1166,11 @@ input.accessoryQuantity {
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
-              </div>
+              
             {% endform %}
+            </div>
+            </div>
+            </div>
             </div>
           </div>
 
@@ -1645,6 +1651,13 @@ input.accessoryQuantity {
       width: calc(100% - 80px)!important;
     }
   }
+  .quantInput {
+    width: 30%;
+    display: inline-block;
+}
+  label.single-option-radio__label {
+    display: inline-block!important;
+}
 </style>
 </div>
 {% unless product.empty == empty %}

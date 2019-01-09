@@ -134,6 +134,8 @@ div#productIntro {
 
 .radio-wrapper .single-option-radio__label{
   	margin-bottom:0px;
+    position:absolute;
+    margin-left:110px;
 }
 .hidden{display:none!important;}
   
@@ -564,7 +566,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', end
 }
 
 .quantInput {
-  padding-left:10px;
+  width:30%;
+  display:inline-block;
 }
 
 .grid.comparison .leftBox{
@@ -1031,7 +1034,7 @@ div#shopify-product-reviews h2 {
                             {% endfor %}
                           </select>
                         {% endif %}
-                      </div>
+                      
                     {% endfor %}
                   {% endunless %}
 
@@ -1051,7 +1054,7 @@ div#shopify-product-reviews h2 {
                       {% endif %}
                     {% endfor %}
                   </select>
-              </div> {% comment %} varInputEnd {% endcomment %}
+               {% comment %}</div> varInputEnd {% endcomment %}
 
               {% comment %} ==not sure whats below START== {% endcomment %}
 
@@ -1078,7 +1081,7 @@ div#shopify-product-reviews h2 {
                   <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
                 </div>
 
-                </div> {% comment %} child2 END {% endcomment %}
+              </div> {% comment %} child2 END {% endcomment %}
                 
                 <span class="quantityMsg"> Buy 2 or More & Get 20% off</span>
 
@@ -1132,6 +1135,7 @@ div#shopify-product-reviews h2 {
               </div>
             {% endform %}
 
+          </div>
           </div>
 
           <div class="prodIntroMob">
@@ -1343,6 +1347,7 @@ div#shopify-product-reviews h2 {
 
     .quantInput {
       padding-left:5px;
+
     }
 
     .order-btn-icon {
