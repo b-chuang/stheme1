@@ -1,3 +1,16 @@
+<style type="text/css">
+
+.radio-wrapper .single-option-radio__label {
+  display:initial;
+  text-align:left;
+}
+
+.radio-wrapper .product-form__item {
+  text-align:left;
+}
+
+</style>
+
 <!-- /templates/product.liquid -->
 <div itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="{{ section.settings.zoom_enable }}" data-enable-history-state="true" data-scroll-to-image="{% if section.settings.image_layout == "stacked" %}true{% else %}false{% endif %}">
 
@@ -332,6 +345,12 @@
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
+
+                 <div>
+                  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/badge_pack_14.png?3854381997166240710" />
+                </div>
+
+
               </div>
             {% endform %}
 
@@ -340,21 +359,29 @@
           <div class="product-single__description rte" itemprop="description">
             {{ product.description }}
           </div>
-       <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+      
           
           {% if section.settings.social_sharing_products %}
             {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
           {% endif %}
         </div>
+
+       
+
       </div>
     </div>
 
+  <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
     {% if collection %}
       <hr class="hr--clear">
+
       <div class="text-center">
         <a href="{{ collection.url }}" class="return-link">&larr; {{ 'products.general.collection_return' | t: collection: collection.title }}</a>
       </div>
     {% endif %}
+
+
 
 </div>
 {% unless product.empty == empty %}

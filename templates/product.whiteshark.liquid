@@ -104,6 +104,7 @@ h1.product-single__title span {
     padding-left: 70px!important;
     padding-right: 70px!important;
     outline: none;
+    width:420px;
 }
 .order-btn-icon span{
 	  vertical-align:center; 
@@ -112,6 +113,11 @@ h1.product-single__title span {
 .order-btn-icon span span{
 	  font-size: 1.4rem; 
     padding:0;
+}
+
+.secBadge {
+  width:100%;
+  display:inline-block;
 }
 
 span.assurance {
@@ -568,7 +574,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', end
 .flexParent {
   display:flex;
   flex-direction:row;
-  margin-left:60px;
+  margin-left:30px;
 }
 
 .quantInput {
@@ -1166,6 +1172,10 @@ input.accessoryQuantity {
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
+
+                <div class="secBadge">
+                  <img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/badge_pack_14.png?3854381997166240710" />
+                </div>
               
             {% endform %}
             </div>
@@ -1270,7 +1280,7 @@ input.accessoryQuantity {
       font-size:1rem!Important;
     }
     .grid__item{
-    	padding-left:15px!important;
+    	padding-left:0px!important;
     }
     .payment-buttons button{
     	font-size:1.3em!important;
@@ -1301,8 +1311,12 @@ input.accessoryQuantity {
     .outstand h2.totalVal{
       font-size:2.6rem!important;
       line-height:2.8rem!important;
-    
     }
+
+    .w3-product-accessories {
+      width:95%;
+    }
+
     .compareBox .grid__item.large--six-twelfths {
         padding-left: 0px!important;
     }
@@ -1382,7 +1396,7 @@ input.accessoryQuantity {
     .flexParent {
       display:flex;
       flex-direction:row;
-      margin-left:25px;
+      margin-left:15px;
     }
 
     .quantInput {
@@ -1422,6 +1436,7 @@ input.accessoryQuantity {
     .order-btn-icon {
       padding-left: 50px!important;
       padding-right: 50px!important;
+      width:300px;
     }
       
     .grid.gurantee-benefit {
