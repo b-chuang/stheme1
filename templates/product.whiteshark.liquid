@@ -770,209 +770,50 @@ input.accessoryQuantity {
       
       {% comment %} <div class="saleText"><img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><span>End of Year Sale: </span> Save $100 + 50% Storewide Discount<img src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/sale.png"><img class="wavyBorder" src="https://cdn.shopify.com/s/files/1/0020/1542/8674/files/wave.png"></div> {% endcomment %}
       
-      <div class="grid__item large--six-twelfths medium--twelfths-twelfths text-center" id="prodMainImg">
-
-        {% if section.settings.image_layout == "stacked" %}
-          {% comment %}
-            Default or stacked layout
-          {% endcomment %}
-
-          {% comment %}
-            We need to figure out the max width we want the image to be on the page
-            based on the aspect ratio of the image and based on the size of the
-            image.
-          {% endcomment %}
-        
-          <div class="product-single__photos">
-            {% capture img_id_class %}product-single__photo-{{ featured_image.id }}{% endcapture %}
-            {% capture wrapper_id %}ProductImageWrapper-{{ featured_image.id }}{% endcapture %}
-
-            {% comment %}
-              Display current variant image
-            {% endcomment %}
-            <div class="product-single__photo--flex-wrapper">
-              <div class="product-single__photo--flex">
-                {% include 'image-style' with image: featured_image, width: 500, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
-                <div id="{{ wrapper_id }}" class="product-single__photo--container">
-                  <div class="product-single__photo-wrapper" style="padding-top:{{ 1 | divided_by: featured_image.aspect_ratio | times: 100}}%;">
-                    {% assign img_url = featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                    <img class="product-single__photo lazyload {{ img_id_class }}"
-                      src="{{ featured_image | img_url: '300x300' }}"
-                      data-src="{{ img_url }}"
-                      data-widths="[180, 360, 590, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                      data-aspectratio="{{ featured_image.aspect_ratio }}"
-                      data-sizes="auto"
-                      {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %}
-                      data-image-id="{{ featured_image.id }}"
-                      alt="{{ featured_image.alt | escape }}">
-
-                    <noscript>
-                      <img class="product-single__photo"
-                        src="{{ featured_image | img_url: 'master' }}"
-                        {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %}
-                        alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}">
-                    </noscript>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {% comment %}
-              Display rest of product images, not repeating the featured one
-            {% endcomment %}
-            {% for image in product.images %}
-              {% unless image contains featured_image %}
-
-                {% comment %}
-                  We need to figure out the max width we want the image to be on the page
-                  based on the aspect ratio of the image and based on the size of the
-                  image.
-                {% endcomment %}
-                {% capture img_id_class %}product-single__photo-{{ image.id }}{% endcapture %}
-                {% capture wrapper_id %}ProductImageWrapper-{{ image.id }}{% endcapture %}
-
-                <div class="product-single__photo--flex-wrapper">
-                  <div class="product-single__photo--flex">
-                    {% include 'image-style' with image: image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
-                    <div id="{{ wrapper_id }}" class="product-single__photo--container">
-                      <div class="product-single__photo-wrapper" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
-                        {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                        <img class="product-single__photo lazyload {{ img_id_class }}"
-                          src="{{ image | img_url: '300x' }}"
-                          data-src="{{ img_url }}"
-                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                          data-aspectratio="{{ image.aspect_ratio }}"
-                          data-sizes="auto"
-                          {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
-                          data-image-id="{{ image.id }}"
-                          alt="{{ image.alt | escape }}">
-
-                        <noscript>
-                          <img class="product-single__photo" src="{{ image.src | img_url: 'master' }}"
-                            {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
-                            alt="{{ image.alt | escape }}"
-                            data-image-id="{{ image.id }}">
-                        </noscript>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% endunless %}
-            {% endfor %}
-
-          
-
-
-
-          </div>
-
-        {% else %}
-          {% comment %}
-            Thumbnails layout
-          {% endcomment %}
-
-          <div class="product-thumbnail__photos product-single__photos">
-
-            {% comment %}
-              We need to figure out the max width we want the image to be on the page
-              based on the aspect ratio of the image and based on the size of the
-              image.
-            {% endcomment %}
-            {% capture img_id_class %}product-single__photo-{{ featured_image.id }}{% endcapture %}
-            {% capture wrapper_id %}ProductImageWrapper-{{ featured_image.id }}{% endcapture %}
-
-            {% comment %}
-              Display current variant image
-            {% endcomment %}
-            <div class="product-single__photo--flex-wrapper">
-              <div class="product-single__photo--flex">
-                {% include 'image-style' with image: featured_image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
-                <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb">
-                  <div class="product-single__photo-wrapper" style="padding-top:{{ 1 | divided_by: featured_image.aspect_ratio | times: 100}}%;">
-                    {% assign img_url = featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                    <img class="product-single__photo lazyload {{ img_id_class }}"
-                      src="{{ featured_image | img_url: '300x300' }}"
-                      data-src="{{ img_url }}"
-                      data-widths="[180, 360, 590, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                      data-aspectratio="{{ featured_image.aspect_ratio }}"
-                      data-sizes="auto"
-                      {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %}
-                      data-image-id="{{ featured_image.id }}"
-                      alt="{{ featured_image.alt | escape }}">
-
-                    <noscript>
-                      <img class="product-single__photo"
-                        src="{{ featured_image | img_url: 'master' }}"
-                        {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %}
-                        alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}">
-                    </noscript>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {% comment %}
-              Populate rest of product images with display = none, not repeating the featured one
-            {% endcomment %}
-            {% for image in product.images %}
-              {% unless image contains featured_image %}
-
-                {% comment %}
-                  We need to figure out the max width we want the image to be on the page
-                  based on the aspect ratio of the image and based on the size of the
-                  image.
-                {% endcomment %}
-                {% capture img_id_class %}product-single__photo-{{ image.id }}{% endcapture %}
-                {% capture wrapper_id %}ProductImageWrapper-{{ image.id }}{% endcapture %}
-
-                <div class="product-single__photo--flex-wrapper">
-                  <div class="product-single__photo--flex">
-                    {% include 'image-style' with image: image, width: 575, height: 850, small_style: true, wrapper_id: wrapper_id, img_id_class: img_id_class %}
-                    <div id="{{ wrapper_id }}" class="product-single__photo--container product-single__photo--container-thumb hide">
-                      <div class="product-single__photo-wrapper" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
-                        {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                        <img class="product-single__photo lazyload {{ img_id_class }}"
-                          src="{{ image | img_url: '300x' }}"
-                          data-src="{{ img_url }}"
-                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                          data-aspectratio="{{ image.aspect_ratio }}"
-                          data-sizes="auto"
-                          {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
-                          data-image-id="{{ image.id }}"
-                          alt="{{ image.alt | escape }}">
-
-                        <noscript>
-                          <img class="product-single__photo" src="{{ image.src | img_url: 'master' }}"
-                            {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %}
-                            alt="{{ image.alt | escape }}"
-                            data-image-id="{{ image.id }}">
-                        </noscript>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% endunless %}
-            {% endfor %}
-
-            {% comment %}
-              Display thumbnails
-            {% endcomment %}
-            <ul class="product-single__thumbnails small--hide grid-uniform" id="ProductThumbs">
-              {% for image in product.images %}
-                {% if product.images.size > 1 %}
-                  <li class="grid__item medium--one-third large--one-quarter product-single__photo-wrapper">
-                    <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: 'grande' }}" class="product-single__thumbnail {% if image contains featured_image %} active-thumb{% endif %}">
-                      <img class="product-single__thumb" src="{{ image.src | img_url: '150x' }}" alt="{{ image.alt | escape }}">
-                    </a>
-                  </li>
-                {% endif %}
+      <div class="grid__item product-single__meta--wrapper medium--six-twelfths large--six-twelfths">
+        	<div id="slider1" class="flexslider">
+            <ul class="slides">
+                  {% for image in product.images %}
+                 <li>
+                    {{ image | product_img_url: '480x480', crop: ‘center’ | img_tag , '', 'js lazyload'}}
+                 </li>
               {% endfor %}
             </ul>
-
           </div>
-        {% endif %}
+          <div id="carousel1" class="flexslider rob">
+            <ul class="slides">
+                  {% for image in product.images %}
+                 <li>
+                  
+                  {{ image | product_img_url: '100x100' | img_tag , '', 'js autosizes lazyload' }}
+                 </li>
+              {% endfor %}
+            </ul>
+            </div>
+        <script>
+  $(document).ready(function() {
 
-      </div>
+    $('#carousel1').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      itemWidth: 100,
+      itemMargin: 4,
+      asNavFor: '#slider1'
+    });
+
+    $('#slider1').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      sync: "#carousel1"
+    });
+    $('.flex-next').html("");
+  });
+</script>
+        </div>
 
 
 
